@@ -9,6 +9,7 @@ const logger = require('../utils/logger');
  * @param res
  * @returns {Promise<void>}
  */
+// Các data được đưa vào đây
 exports.execute = async (req, res) => {
   // decode data
   const data = JWT(req.body);

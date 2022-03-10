@@ -6,6 +6,7 @@ const fs = require('fs');
  * @param req
  * @param res
  */
+// domain link lấy từ Zalo
 exports.config = (req, res) => {
   const domain = req.headers.host || req.headers.origin;
   const file = path.join(__dirname, '..', 'public', 'config-template.json');
