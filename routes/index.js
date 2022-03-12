@@ -23,7 +23,7 @@ exports.config = (req, res) => {
  */
 exports.ui = (req, res) => {
   res.render('index', {
-    title: 'Custom Activity',
+    title: 'Zalo Custom Activity',
     dropdownOptions: [
       {
         name: 'Journey Entry',
