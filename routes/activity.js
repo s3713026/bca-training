@@ -2,6 +2,7 @@ const { v1: Uuidv1 } = require('uuid');
 const JWT = require('../utils/jwtDecoder');
 const SFClient = require('../utils/sfmc-client');
 const logger = require('../utils/logger');
+const fs = require('fs');
 
 /**
  * The Journey Builder calls this method for each contact processed by the journey.
@@ -52,7 +53,7 @@ exports.getToken = async (req,res) =>{
     var objectValue = JSON.parse(string);
     var get_authorization_code = objectValue['code'];
     console.log("Authorization Code: " + get_authorization_code);
-    // res.send(get_authorization_code);
+    res.send(get_authorization_code);
 
     var request = require('request');
     var options = {
