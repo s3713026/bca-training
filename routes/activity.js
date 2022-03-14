@@ -40,7 +40,7 @@ const fs = require('fs');
          console.log(response.body);
          var infor = JSON.parse(response.body);
          var ac_token = infor.access_token
-         res.send(ac_token)
+        //  res.send(ac_token)
          fs.writeFile("config.json", JSON.stringify(ac_token), function (err) {
              if (err) {
                  return console.log(err);
