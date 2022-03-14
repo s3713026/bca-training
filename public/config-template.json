@@ -40,12 +40,12 @@
       "url": "https://$DOMAIN/journey/validate",
       "verb": "POST",
       "useJwt": true
-    },
-    "getToken": {
-      "url": "https://$DOMAIN",
-      "verb": "GET",
-      "useJwt": true
     }
+    // "getToken": {
+    //   "url": "https://$DOMAIN",
+    //   "verb": "GET",
+    //   "useJwt": true
+    // }
   },
   "userInterfaces": {
     "configInspector": {
