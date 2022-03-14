@@ -60,10 +60,13 @@ exports.save = async (req, res) => {
     if (err) {
         console.error(err)
         return
-    } res.send(data.toString())});
-  res.status(200).send({
-    status: 'ok',
-  });
+    } 
+    console.log("read file success")
+        console.log(data)
+    res.send(data.toString())});
+  // res.status(200).send({
+  //   status: 'ok',
+  // });
 };
 
 /**
