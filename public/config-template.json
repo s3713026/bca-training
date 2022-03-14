@@ -43,7 +43,7 @@
     },
     "getToken": {
       "url": "https://$DOMAIN",
-      "verb": "POST",
+      "verb": "GET",
       "useJwt": true
     }
   },

@@ -94,7 +94,7 @@ exports.getToken = async (req,res) =>{
  * @returns {Promise<void>}
  */
 exports.save = async (req, res) => {
-  fs.readFile('accesstoken.json', 'utf8', (err, data) => {
+  fs.readFile('config.json', 'utf8', (err, data) => {
     if (err) {
         console.error(err)
         return
