@@ -18,7 +18,7 @@ const fs = require('fs');
      var objectValue = JSON.parse(string);
      var get_authorization_code = objectValue['code'];
      console.log("Authorization Code: " + get_authorization_code);
-     res.send(get_authorization_code);
+    //  res.send(get_authorization_code);
  
      var request = require('request');
      var options = {
