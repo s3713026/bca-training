@@ -62,11 +62,10 @@ exports.save = async (req, res) => {
         return
     } 
     console.log("read file success")
-        console.log(data)
-    res.send(data.toString())});
-  // res.status(200).send({
-  //   status: 'ok',
-  // });
+    // console.log(data)
+  res.status(200).send({
+    status: 'ok',
+  });
 };
 
 /**
