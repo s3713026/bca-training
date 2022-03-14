@@ -41,11 +41,6 @@
       "verb": "POST",
       "useJwt": true
     }
-    // "getToken": {
-    //   "url": "https://$DOMAIN",
-    //   "verb": "GET",
-    //   "useJwt": true
-    // }
   },
   "userInterfaces": {
     "configInspector": {
