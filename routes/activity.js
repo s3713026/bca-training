@@ -9,7 +9,7 @@ const logger = require('../utils/logger');
  * @param res
  * @returns {Promise<void>}
  */
-// Các data được đưa vào đây
+// Thực thi được gọi khi 1 người vào Customer Activity
 exports.execute = async (req, res) => {
   // decode data
   const data = JWT(req.body);

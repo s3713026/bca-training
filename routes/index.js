@@ -9,8 +9,10 @@ const fs = require('fs');
 // domain link lấy từ Zalo
 exports.config = (req, res) => {
   const domain = req.headers.host || req.headers.origin;
+  // tạo , nối các đường dẫn 
   const file = path.join(__dirname, '..', 'public', 'config-template.json');
 
+  // đọc file từ config-template.json với mã hóa
   const configTemplate = fs.readFileSync(file, 'utf-8');
   const config = JSON.parse(configTemplate.replace(/\$DOMAIN/g, domain));
   res.json(config);
