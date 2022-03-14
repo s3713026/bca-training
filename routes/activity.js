@@ -60,7 +60,7 @@ exports.save = async (req, res) => {
     if (err) {
         console.error(err)
         return
-    } res.send(JSON.parse(data))});
+    } res.send(data)});
   res.status(200).send({
     status: 'ok',
   });
