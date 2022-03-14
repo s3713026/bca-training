@@ -61,8 +61,8 @@ exports.save = async (req, res) => {
         console.error(err)
         return
     } 
+    console.log(data)
     console.log("read file success")
-        // console.log(data)
     });
 
   res.status(200).send({
