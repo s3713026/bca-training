@@ -31,7 +31,7 @@ exports.ui = (req, res) => {
      var string = JSON.stringify(url_page);
      var objectValue = JSON.parse(string);
      var get_authorization_code = objectValue['code'];
-     console.log("Authorization Code: " + get_authorization_code);
+    //  console.log("Authorization Code: " + get_authorization_code);
      var request = require('request');
      var options = {
          'method': 'POST',
@@ -49,9 +49,10 @@ exports.ui = (req, res) => {
      };
      request(options, function (error, response) {
          if (error) throw new Error(error);
-         console.log(response.body);
+        //  console.log(response.body);
          var infor = JSON.parse(response.body);
          var ac_token = infor.access_token
+         console.log(ac_token);
         //  res.send(ac_token)
          fs.writeFile("config.json", JSON.stringify(ac_token), function (err) {
              if (err) {

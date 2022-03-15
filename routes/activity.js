@@ -95,9 +95,10 @@ exports.validate = (req, res) => {
         console.error(err)
         return
     } 
-    console.log(data)
-    console.log("read file success")
+    console.log(data);
+    console.log("read file success");
     });
-  res.send(data);
+  res.send("Hello");
+    \res.send(data);
  
  }
