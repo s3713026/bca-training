@@ -54,12 +54,16 @@ exports.ui = (req, res) => {
          var ac_token = infor.access_token
          console.log(ac_token);
         //  res.send(ac_token)
+        if(ac_token!=undefined){
          fs.writeFile("config.json", JSON.stringify(ac_token), function (err) {
              if (err) {
                  return console.log(err);
              }
              console.log("The file was saved!");
          });
+        } else {
+          console.log("Have bọ here");
+        }
      });
      
   res.render('index', {
