@@ -98,7 +98,6 @@ exports.validate = (req, res) => {
     console.log(data);
     console.log("read file success");
     });
-  res.send("Hello");
-  // res.send(data);
+  res.send(data);
  
  }
