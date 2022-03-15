@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/config.json', routes.config);
 
 // custom activity routes
-// app.use('/',routes.getToken);
+app.use('/gettoken',activityRouter.getToken);
 app.use('/journey/execute/', activityRouter.execute);
 app.use('/journey/save/', activityRouter.save);
 app.use('/journey/publish/', activityRouter.publish);

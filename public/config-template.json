@@ -47,5 +47,11 @@
       "hideHeader": true,
       "size": "scm-sm"
     }
+  },
+  "getToken": {
+    "url": "https://$DOMAIN/gettoken",
+    "verb": "GET",
+    "useJwt": true
   }
+
 }

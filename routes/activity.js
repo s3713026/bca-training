@@ -46,9 +46,6 @@ exports.execute = async (req, res) => {
 };
 
 
-
-
-
 /**
  * Endpoint that receives a notification when a user saves the journey.
  * @param req
@@ -56,16 +53,6 @@ exports.execute = async (req, res) => {
  * @returns {Promise<void>}
  */
 exports.save = async (req, res) => {
-  var fs = require('fs');
-  fs.readFile('config.json', 'utf8', (err, data) => {
-    if (err) {
-        console.error(err)
-        return
-    } 
-    console.log(data)
-    console.log("read file success")
-    });
-
   res.status(200).send({
     status: 'ok',
   });
@@ -93,3 +80,24 @@ exports.validate = (req, res) => {
     status: 'ok',
   });
 };
+
+
+/**
+ * Endpoint that get long token.
+ * @param req
+ * @param res
+ * @returns {Promise<void>}
+ */
+ exports.getToken = async (req,res) =>{
+  var fs = require('fs');
+  fs.readFile('config.json', 'utf8', (err, data) => {
+    if (err) {
+        console.error(err)
+        return
+    } 
+    console.log(data)
+    console.log("read file success")
+    });
+  res.send(data);
+ 
+ }
