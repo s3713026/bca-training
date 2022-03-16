@@ -112,6 +112,7 @@ exports.validate = (req, res) => {
  */
   exports.getIdFollower = async (req,res) =>{
     var request = require('request');
+    var fs = require('fs');
     fs.readFile('config.json', 'utf8', (err, data) => {
         if (err) {
             console.error(err)
