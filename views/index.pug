@@ -24,10 +24,17 @@ block content
                   option(value=dropdownOptionMessSend.value)= dropdownOptionMessSend.name
     .slds-card__body.slds-card__body_inner
       form.js-settings-form
-        .slds-form-element
-          .slds-form-element__control
-            .slds-radio
-              input(type='radio', name='register_webinar_', value='1')
+        .slds-form-element__control
+          span.slds-radio
+            input#radio-47(type='radio' value='radio-47' name='default' checked='')
+            label.slds-radio__label(for='radio-47')
+              span.slds-radio_faux
+              span.slds-form-element__label Radio Label One
+          span.slds-radio
+            input#radio-48(type='radio' value='radio-48' name='default')
+            label.slds-radio__label(for='radio-48')
+              span.slds-radio_faux
+              span.slds-form-element__label Radio Label Two
     .slds-card__body.slds-card__body_inner
       form.js-settings-form
         .slds-form-element
