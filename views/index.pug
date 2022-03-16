@@ -22,13 +22,26 @@ block content
               select#DropdownOptionsMessSend.slds-select.js-activity-setting(name='dropdownOptionsMessSend')
                 each dropdownOptionMessSend in dropdownOptionsMessSend
                   option(value=dropdownOptionMessSend.value)= dropdownOptionMessSend.name
-              
+    input#html(type='radio' name='clientS' value='HTML' onclick='showUserFollow()' checked='')
+      label(for='html') Gửi cá nhân
+    input#css(type='radio' name='clientS' value='CSS' onclick='showUserFollow()')
+      label(for='css') Gửi tất cả
+    .slds-card__body.slds-card__body_inner
+      form.js-settings-form
+        .slds-form-element
+          label.slds-form-element__label(for="DropdownOptionsMessSend") Chọn Phương Pháp Gửi Tin
+          .slds-form-element__control
+            .slds-select_container
+              select#DropdownOptionsMessSend.slds-select.js-activity-setting(name='dropdownOptionsMessSend')
+                each dropdownOptionMessSend in dropdownOptionsMessSend
+                  option(value=dropdownOptionMessSend.value)= dropdownOptionMessSend.name
+
           label.slds-form-element__label.slds-p-top_medium(for='Text')
             abbr.slds-required(title='required')
             | Text *
           .slds-form-element__control
-            input#Text.slds-input.js-activity-setting(required='', placeholder='', name='text')
-            
+            input#Text.slds-input.js-activity-setting(required='' placeholder='' name='text')
 
-    footer.slds-card__footer
+
+  footer.slds-card__footer
 
