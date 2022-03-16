@@ -103,3 +103,46 @@ exports.validate = (req, res) => {
   res.send("Hello")
  
  }
+
+ /**
+ * Lấy Id người quan tâm.
+ * @param req
+ * @param res
+ * @returns {Promise<void>}
+ */
+  exports.getIdFollower = async (req,res) =>{
+    var request = require('request');
+    fs.readFile('config.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error(err)
+            return
+        }
+        console.log("read file success")
+        console.log(data)
+        var options2 = {
+            'method': 'GET',
+            'url': 'https://openapi.zalo.me/v2.0/oa/getfollowers',
+            'headers': {
+                'access_token': data,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "offset": 0,
+                "count": 10
+            })
+
+        };
+        request(options2, function (error, response) {
+            if (error) throw new Error(error);
+            console.log(response.body)
+            var uid = JSON.parse(response.body).data.followers
+            res.send(JSON.stringify(uid))
+            fs.writeFile("userid.json", JSON.stringify(uid), function (err) {
+                if (err) {
+                    return console.log(err);
+                }
+                console.log("The file was saved!");
+            });
+        });
+    });
+   }
