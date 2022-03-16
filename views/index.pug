@@ -29,27 +29,26 @@ block content
             input#radio-47(type='radio' value='radio-47' name='default' checked='')
             label.slds-radio__label(for='radio-47')
               span.slds-radio_faux
-              span.slds-form-element__label Radio Label One
+              span.slds-form-element__label Gửi Cá Nhân
           span.slds-radio
             input#radio-48(type='radio' value='radio-48' name='default')
             label.slds-radio__label(for='radio-48')
               span.slds-radio_faux
-              span.slds-form-element__label Radio Label Two
+              span.slds-form-element__label Gửi Tất Cả
     .slds-card__body.slds-card__body_inner
       form.js-settings-form
         .slds-form-element
-          label.slds-form-element__label(for="DropdownOptionsMessSend") Chọn Phương Pháp Gửi Tin
+          label.slds-form-element__label(for="DropdownOptionsClient") Chọn Người Gửi
           .slds-form-element__control
             .slds-select_container
-              select#DropdownOptionsMessSend.slds-select.js-activity-setting(name='dropdownOptionsMessSend')
-                each dropdownOptionMessSend in dropdownOptionsMessSend
-                  option(value=dropdownOptionMessSend.value)= dropdownOptionMessSend.name
-
+              select#DropdownOptionsClient.slds-select.js-activity-setting(name='dropdownOptionsClient')
+                each dropdownOptionClient in dropdownOptionsClient
+                  option(value=dropdownOptionClient.value)= dropdownOptionClient.name
           label.slds-form-element__label.slds-p-top_medium(for='Text')
             abbr.slds-required(title='required')
-            | Text *
+            | Thông Tin Tin Nhắn *
           .slds-form-element__control
-            input#Text.slds-input.js-activity-setting(required='' placeholder='' name='text')
+            textarea#textarea-id-01.slds-textarea(disabled='' placeholder='Nhập text…')
 
 
   footer.slds-card__footer

@@ -82,5 +82,19 @@ exports.ui = (req, res) => {
         value: 'sendImg'
       }
     ],
+    dropdownOptionsClient: [
+      {
+        name: 'C1',
+        value: 'C1',
+      },
+      {
+        name: 'C2',
+        value: 'C2',
+      },
+      {
+        name: 'C3',
+        value: 'C3'
+      }
+    ],
   });
 };
