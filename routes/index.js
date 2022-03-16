@@ -68,15 +68,19 @@ exports.ui = (req, res) => {
      
   res.render('index', {
     title: 'Zalo Custom Activity',
-    dropdownOptions: [
+    dropdownOptionsMessSend: [
       {
-        name: 'Journey Entry',
-        value: 'journeyEntry',
+        name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
+        value: 'replyClient',
       },
       {
-        name: 'Journey Exit',
-        value: 'journeyExit',
+        name: 'Gửi Tin Nhắn Text',
+        value: 'sendMess',
       },
+      {
+        name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
+        value: 'sendImg'
+      }
     ],
   });
 };
