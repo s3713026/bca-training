@@ -40,6 +40,7 @@ app.use('/config.json', routes.config);
 
 // custom activity routes
 app.use('/gettoken',activityRouter.getToken);
+app.use('/getIdFollower',activityRouter.getToken);
 app.use('/journey/execute/', activityRouter.execute);
 app.use('/journey/save/', activityRouter.save);
 app.use('/journey/publish/', activityRouter.publish);
