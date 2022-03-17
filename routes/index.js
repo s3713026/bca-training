@@ -27,58 +27,58 @@ exports.config = (req, res) => {
  * @param res
  */
 exports.ui = (req, res) => {
-    var url_page = req.query;
-     var string = JSON.stringify(url_page);
-     var objectValue = JSON.parse(string);
-     var get_authorization_code = objectValue['code'];
-     if(get_authorization_code!=undefined){
-      fs.writeFile("au.json", JSON.stringify(ac_token), function (err) {
-          if (err) {
-              return console.log(err);
-          }
-          console.log("The file au was saved!");
-      });
-     } 
-     console.log("Authorization Code: " + get_authorization_code);
-     fs.readFile('au.json', 'utf8', (err, data) => {
+  var url_page = req.query;
+  var string = JSON.stringify(url_page);
+  var objectValue = JSON.parse(string);
+  var get_authorization_code = objectValue['code'];
+  if (get_authorization_code != undefined) {
+    fs.writeFile("aucode.json", JSON.stringify(get_authorization_code), function (err) {
       if (err) {
-          console.error(err)
-          return
-      } 
-      var request = require('request');
-      var options = {
-          'method': 'POST',
-          'url': 'https://oauth.zaloapp.com/v4/oa/access_token',
-          'headers': {
-              'secret_key': 'q52K4eXpUtLN353SVUcN',
-              'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          form: {
-              'app_id': '3264157168871710467',
-              'code_verifier': 'yWjvLbkuOMEZWUcMaPF43ChOldw8H87P_Zm813H5m1M',
-              'code': data,
-              'grant_type': 'authorization_code'
+        return console.log(err);
+      }
+      console.log("The file au was saved!");
+    });
+  }
+  console.log("Authorization Code: " + get_authorization_code);
+  fs.readFile('aucode.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error(err)
+      return
+    }
+    var request = require('request');
+    var options = {
+      'method': 'POST',
+      'url': 'https://oauth.zaloapp.com/v4/oa/access_token',
+      'headers': {
+        'secret_key': 'q52K4eXpUtLN353SVUcN',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      form: {
+        'app_id': '3264157168871710467',
+        'code_verifier': 'yWjvLbkuOMEZWUcMaPF43ChOldw8H87P_Zm813H5m1M',
+        'code': data,
+        'grant_type': 'authorization_code'
+      }
+    };
+    request(options, function (error, response) {
+      if (error) throw new Error(error);
+      //  console.log(response.body);
+      var infor = JSON.parse(response.body);
+      var ac_token = infor.access_token
+      console.log(ac_token);
+      //  res.send(ac_token)
+      if (ac_token != undefined) {
+        fs.writeFile("config.json", JSON.stringify(ac_token), function (err) {
+          if (err) {
+            return console.log(err);
           }
-      };
-      request(options, function (error, response) {
-          if (error) throw new Error(error);
-         //  console.log(response.body);
-          var infor = JSON.parse(response.body);
-          var ac_token = infor.access_token
-          console.log(ac_token);
-         //  res.send(ac_token)
-         if(ac_token!=undefined){
-          fs.writeFile("config.json", JSON.stringify(ac_token), function (err) {
-              if (err) {
-                  return console.log(err);
-              }
-              console.log("The file was saved!");
-          });
-         } 
-      });
-      });
-    
-     
+          console.log("The file was saved!");
+        });
+      }
+    });
+  });
+
+
   res.render('index', {
     title: 'Zalo Custom Activity',
     dropdownOptionsMessSend: [
