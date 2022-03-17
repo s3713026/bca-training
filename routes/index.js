@@ -18,7 +18,7 @@ exports.config = (req, res) => {
   res.json(config);
 };
 
-exports.getToken = (req,res)=>{
+var getToken = (req,res)=>{
   var url_page = req.query;
      var string = JSON.stringify(url_page);
      var objectValue = JSON.parse(string);
@@ -98,5 +98,5 @@ exports.ui = (req, res) => {
       }
     ],
   });
-  this.getToken;
+  getToken();
 };
