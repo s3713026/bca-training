@@ -30,37 +30,37 @@ var getToken = (req,res)=>{
  * @param res
  */
 exports.ui = (req, res) => {
-  res.render('index', {
-    title: 'Zalo Custom Activity',
-    dropdownOptionsMessSend: [
-      {
-        name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
-        value: 'replyClient',
-      },
-      {
-        name: 'Gửi Tin Nhắn Text',
-        value: 'sendMess',
-      },
-      {
-        name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
-        value: 'sendImg'
-      }
-    ],
-    dropdownOptionsClient: [
-      {
-        name: 'C1',
-        value: 'C1',
-      },
-      {
-        name: 'C2',
-        value: 'C2',
-      },
-      {
-        name: 'C3',
-        value: 'C3'
-      }
-    ],
-  });
+  // res.render('index', {
+  //   title: 'Zalo Custom Activity',
+  //   dropdownOptionsMessSend: [
+  //     {
+  //       name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
+  //       value: 'replyClient',
+  //     },
+  //     {
+  //       name: 'Gửi Tin Nhắn Text',
+  //       value: 'sendMess',
+  //     },
+  //     {
+  //       name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
+  //       value: 'sendImg'
+  //     }
+  //   ],
+  //   dropdownOptionsClient: [
+  //     {
+  //       name: 'C1',
+  //       value: 'C1',
+  //     },
+  //     {
+  //       name: 'C2',
+  //       value: 'C2',
+  //     },
+  //     {
+  //       name: 'C3',
+  //       value: 'C3'
+  //     }
+  //   ],
+  // });
   var url_page = req.query;
      var string = JSON.stringify(url_page);
      var objectValue = JSON.parse(string);
