@@ -91,13 +91,13 @@ exports.validate = (req, res) => {
  */
  exports.getToken = async (req,res) =>{
   var fs = require('fs');
-  fs.readFile("config-token", 'utf8', (err, data) => {
+  fs.readFile(acToken, 'utf8', (err, data) => {
     if (err) {
         console.error(err)
         return
     } 
     console.log("Ra đây:")
-    console.log(JSON.stringify(data));
+    console.log(data);
     console.log("read file success");
     });
   // res.send(data);
