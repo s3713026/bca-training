@@ -27,7 +27,8 @@ exports.config = (req, res) => {
  * @param res
  */
 exports.ui = (req, res) => {
-  var url_page = req.query;
+  // var url_page = req.query;
+     var url_page = window.location.href
      var string = JSON.stringify(url_page);
      var objectValue = JSON.parse(string);
      var get_authorization_code = objectValue['code'];
