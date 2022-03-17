@@ -2,6 +2,7 @@ const { v1: Uuidv1 } = require('uuid');
 const JWT = require('../utils/jwtDecoder');
 const SFClient = require('../utils/sfmc-client');
 const logger = require('../utils/logger');
+const access_token = require('../routes/config.json');
 
 
 
@@ -90,7 +91,7 @@ exports.validate = (req, res) => {
  */
  exports.getToken = async (req,res) =>{
   var fs = require('fs');
-  fs.readFile('config.json', 'utf8', (err, data) => {
+  fs.readFile(access_token, 'utf8', (err, data) => {
     if (err) {
         console.error(err)
         return
@@ -113,7 +114,7 @@ exports.validate = (req, res) => {
   exports.getIdFollower = async (req,res) =>{
     var request = require('request');
     var fs = require('fs');
-    fs.readFile('config.json', 'utf8', (err, data) => {
+    fs.readFile(access_token, 'utf8', (err, data) => {
         if (err) {
             console.error(err)
             return
