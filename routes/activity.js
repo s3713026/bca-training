@@ -97,7 +97,7 @@ exports.validate = (req, res) => {
         return
     } 
     console.log("Ra đây:")
-    console.log(data);
+    console.log(JSON.stringify(data));
     console.log("read file success");
     });
   // res.send(data);
@@ -125,7 +125,7 @@ exports.validate = (req, res) => {
             'method': 'GET',
             'url': 'https://openapi.zalo.me/v2.0/oa/getfollowers',
             'headers': {
-                'access_token': data,
+                'access_token': "XmkuO4gm1pE63hzjHRO0F8y9kcn3g6Ov_Kgz7NJyS4hkIyf-KROoJznNYHnLuNGEoHh3NGhx3m-h0Ba16EG45f4YiWOVu4qKepk4HXI6Vb2vEBG1T-831TC2kGPur6PKwZYzL4BkNcZ-LOKwRxnI4Tr0bWCIXrm_fro67Jw0HXQlHFyp3Am4PiSGoN1myo8dlKMS2IYWNrsYJRnHEF9MKPHBbWOka5OQb2ge5GFVT1ge0OWf9zPs9BuWZmaK-M0vco2D5YB4GY2NUBq2Afy7DO9S_1nKX3ypu6VTOaYQ33NZOheK-u-EPa-g1JG",
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
