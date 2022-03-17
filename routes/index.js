@@ -35,7 +35,7 @@ exports.ui = (req, res) => {
      var request = require('request');
      var options = {
          'method': 'POST',
-         'url': 'https://oauth.zaloapp.com/v4/oa/access_token',
+         'url': 'https://oauth.zaloapp.com/v2/oa/access_token',
          'headers': {
              'secret_key': 'q52K4eXpUtLN353SVUcN',
              'Content-Type': 'application/x-www-form-urlencoded'
