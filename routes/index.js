@@ -31,7 +31,7 @@ exports.ui = (req, res) => {
      var string = JSON.stringify(url_page);
      var objectValue = JSON.parse(string);
      var get_authorization_code = objectValue['code'];
-    //  console.log("Authorization Code: " + get_authorization_code);
+     console.log("Authorization Code: " + get_authorization_code);
      var request = require('request');
      var options = {
          'method': 'POST',
