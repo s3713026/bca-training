@@ -93,6 +93,7 @@ exports.validate = (req, res) => {
   var fs = require('fs');
   fs.readFile(acToken.token, 'utf8', (err, data) => {
     if (err) {
+        console.log(bug);
         console.error(err)
         return
     } 
