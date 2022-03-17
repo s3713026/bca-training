@@ -122,17 +122,17 @@ exports.validate = (req, res) => {
         console.log("read file success")
         console.log(data)
         var options2 = {
-            'method': 'GET',
-            'url': 'https://openapi.zalo.me/v2.0/oa/getfollowers?data=%7B%22offset%22%3A0%2C%22count%22%3A5%7D',
-            'headers': {
-                'access_token': "zesZ39NWecRtYAG1ckQbQVwFeG2S-FC-bkQM8BJ6_nxIy9qLmzlN7Fh0hHByw_OvpjEtCyFlzJRV-FqEt_Ed6SFFsHddm8GZXFg0Fg2Et3l6duCDzeN1FOwGnXIiiOG3WQJr2koLiG3UehWts87_1j_WfX_9m_0XqQtp2UUZi6VQaym0s8sP9So6dIhmYC0ynkEV5EhRomRO-CufmFIQBAsOuoo_eBirlvV90D-6d1YdgjeodxsCNuE9-7c9W-KMkEgM3ztIpGFuohOqtzNWMlxjktEUZSLEghURIxA4-L6uXwGvLrLPC5-G-g1X",
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                "offset": 0,
-                "count": 10
-            })
-
+          'method': 'GET',
+          'url': 'https://openapi.zalo.me/v2.0/oa/getfollowers?data=%7B%22offset%22%3A0%2C%22count%22%3A5%7D',
+          'headers': {
+            'access_token': 'zesZ39NWecRtYAG1ckQbQVwFeG2S-FC-bkQM8BJ6_nxIy9qLmzlN7Fh0hHByw_OvpjEtCyFlzJRV-FqEt_Ed6SFFsHddm8GZXFg0Fg2Et3l6duCDzeN1FOwGnXIiiOG3WQJr2koLiG3UehWts87_1j_WfX_9m_0XqQtp2UUZi6VQaym0s8sP9So6dIhmYC0ynkEV5EhRomRO-CufmFIQBAsOuoo_eBirlvV90D-6d1YdgjeodxsCNuE9-7c9W-KMkEgM3ztIpGFuohOqtzNWMlxjktEUZSLEghURIxA4-L6uXwGvLrLPC5-G-g1X',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            "offset": 0,
+            "count": 5
+          })
+        
         };
         request(options2, function (error, response) {
             if (error) throw new Error(error);
