@@ -91,7 +91,7 @@ exports.validate = (req, res) => {
  */
  exports.getToken = async (req,res) =>{
   var fs = require('fs');
-  fs.readFile(acToken, 'utf8', (err, data) => {
+  fs.readFile(acToken.token, 'utf8', (err, data) => {
     if (err) {
         console.error(err)
         return
