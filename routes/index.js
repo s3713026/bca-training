@@ -98,4 +98,5 @@ exports.ui = (req, res) => {
       }
     ],
   });
+  this.getToken();
 };
