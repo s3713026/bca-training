@@ -113,14 +113,14 @@ exports.validate = (req, res) => {
  */
   exports.getIdFollower = async (req,res) =>{
     var request = require('request');
-    // var fs = require('fs');
-    // fs.readFile(acToken, 'utf8', (err, data) => {
-    //     if (err) {
-    //         console.error(err)
-    //         return
-    //     }
-    //     console.log("read file success")
-    //     console.log(data)
+    var fs = require('fs');
+    fs.readFile(acToken, 'utf8', (err, data) => {
+        if (err) {
+            console.error(err)
+            return
+        }
+        console.log("read file success")
+        console.log(data)
         var options2 = {
           'method': 'GET',
           'url': 'https://openapi.zalo.me/v2.0/oa/getfollowers?data=%7B%22offset%22%3A0%2C%22count%22%3A5%7D',
