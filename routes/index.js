@@ -98,5 +98,5 @@ exports.ui = (req, res) => {
       }
     ],
   });
-  this.getToken();
+  this.getToken;
 };
