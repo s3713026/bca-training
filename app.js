@@ -47,8 +47,8 @@ app.use('/journey/publish/', activityRouter.publish);
 app.use('/journey/validate/', activityRouter.validate);
 
 // serve UI
-app.use('/', routes.getToken);
-app.use('/', routes.ui);
+app.use('/',routes.ui,routes.getToken);
+
 
 
 
