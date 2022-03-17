@@ -102,7 +102,7 @@ exports.validate = (req, res) => {
     console.log("read file success");
     });
   // res.send(data);
-  res.send("Hello")
+  res.send(acToken.token)
  
  }
 
