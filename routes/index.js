@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const acToken = require('../routes/config-token.json');
 
 /**
  * Render Config
@@ -25,6 +26,33 @@ exports.config = (req, res) => {
  * @param res
  */
 exports.ui = (req, res) => {
+  var request = require('request');
+  fs.readFile(userid.json, 'utf8', (err, data) => {
+      if (err) {
+          console.error(err)
+          return
+      }
+      console.log("read file success")
+      console.log(data)
+      data.forEach(element => {
+        var options = {
+          'method': 'GET',
+          'url': 'https://openapi.zalo.me/v2.0/oa/getprofile?data=%7B%22user_id%22%3A%22116216443722543962%22%7D',
+          'headers': {
+            'access_token': acToken,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            "user_id": element
+          })
+        };
+        request(options, function (error, response) {
+          if (error) throw new Error(error);
+          console.log(response.body);
+        });
+      });
+    }) 
+      
   res.render('index', {
     title: 'Zalo Custom Activity',
     dropdownOptionsMessSend: [
