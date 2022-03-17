@@ -45,6 +45,7 @@ exports.ui = (req, res) => {
       console.error(err)
       return
     }
+    console.log("The file auth was read:", data)
     var request = require('request');
     var options = {
       'method': 'POST',
