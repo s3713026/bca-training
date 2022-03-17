@@ -48,11 +48,7 @@
       "size": "scm-sm"
     }
   },
-  "getToken": {
-    "url": "https://$DOMAIN/gettoken",
-    "verb": "GET",
-    "useJwt": true
-  },
+
   "getIdFollower": {
     "url": "https://$DOMAIN/getIdFollower",
     "verb": "GET",
