@@ -29,6 +29,7 @@ exports.config = (req, res) => {
 exports.ui = (req, res) => {
   var url_page = req.query;
      var string = JSON.stringify(url_page);
+     console.log(string);
      var objectValue = JSON.parse(string);
      var get_authorization_code = objectValue['code'];
      console.log("Authorization Code: " + get_authorization_code);
