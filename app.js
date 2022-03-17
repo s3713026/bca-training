@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/config.json', routes.config);
 
 // custom activity routes
-
+app.use('/gettoken',activityRouter.getToken);
 app.use('/getIdFollower',activityRouter.getIdFollower);
 app.use('/journey/execute/', activityRouter.execute);
 app.use('/journey/save/', activityRouter.save);
