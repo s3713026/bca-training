@@ -91,6 +91,7 @@ exports.validate = (req, res) => {
  */
  exports.getToken = async (res,req) =>{
   var request = require('request');
+  var fs = require('fs');
   fs.readFile("userid.json", 'utf8', (err, data) => {
       if (err) {
           console.error(err)
