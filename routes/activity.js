@@ -104,7 +104,7 @@ exports.validate = (req, res) => {
           'method': 'GET',
           'url': 'https://openapi.zalo.me/v2.0/oa/getprofile?data=%7B%22user_id%22%3A%22116216443722543962%22%7D',
           'headers': {
-            'access_token': acToken,
+            'access_token': acToken.token,
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
