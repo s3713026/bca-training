@@ -33,7 +33,7 @@ exports.ui = (req, res) => {
       }
   })  
   var fs = require('fs');
-  await fs.readFile("userinf.json", 'utf8', (err, data) => {
+  fs.readFile("userinf.json", 'utf8', (err, data) => {
     if (err) {
       console.error(err)
       return
