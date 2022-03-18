@@ -40,40 +40,31 @@ exports.ui = (req, res) => {
       console.log("Đã lấy được thông tin người dùng")
       console.log(data)
       var user_infor = JSON.parse("[" + data + "]")
-      for (var i = 0; i <= user_infor.length; i++) {
-
+      for (i in user_infor) {
+        res.render('index', {
+          title: 'Zalo Custom Activity',
+          dropdownOptionsMessSend: [
+            {
+              name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
+              value: 'replyClient',
+            },
+            {
+              name: 'Gửi Tin Nhắn Text',
+              value: 'sendMess',
+            },
+            {
+              name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
+              value: 'sendImg'
+            }
+          ],
+          dropdownOptionsClient: [
+            {
+              name: user_infor[i].username,
+              value: user_infor[i].u_id,
+            }
+          ],
+        });
       }
     })
   })
-  res.render('index', {
-    title: 'Zalo Custom Activity',
-    dropdownOptionsMessSend: [
-      {
-        name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
-        value: 'replyClient',
-      },
-      {
-        name: 'Gửi Tin Nhắn Text',
-        value: 'sendMess',
-      },
-      {
-        name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
-        value: 'sendImg'
-      }
-    ],
-    dropdownOptionsClient: [
-      {
-        name: 'C1',
-        value: 'C1',
-      },
-      {
-        name: 'C2',
-        value: 'C2',
-      },
-      {
-        name: 'C3',
-        value: 'C3'
-      }
-    ],
-  });
 };
