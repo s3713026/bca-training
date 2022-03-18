@@ -51,7 +51,7 @@ exports.ui = async(req, res) => {
         })
       // }
   })
-  res.render('index', {
+  await res.render('index', {
     title: 'Zalo Custom Activity',
     dropdownOptionsMessSend: [
       {
