@@ -57,8 +57,8 @@ exports.ui = async(req, res) => {
                   ],
                   dropdownOptionsClient: [
                     {
-                      name: JSON.stringify(JSON.parse("["+data+"]")[0].username),
-                      value: JSON.stringify(JSON.parse("["+data+"]")[0].u_id),
+                      name: "1",
+                      value: "0",
                     }
                   ],
                 });
