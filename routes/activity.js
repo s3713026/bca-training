@@ -131,9 +131,7 @@ exports.getUserInfor = async (res, req) => {
             }
             console.log("read file success")
             for (var i = 0; i <= JSON.parse(dataInf).length;i++){
-              if(JSON.parse(dataInf)[i].user_id == element.user_id){
-                continue;
-              }else{
+              if(JSON.parse(dataInf)[i].user_id != element.user_id){
                 fs.appendFile('userinf.json',JSON.stringify(userInfor), function (err) {
                   if (err) throw err;
                   console.log('Saved!');
