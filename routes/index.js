@@ -40,7 +40,7 @@ exports.ui = async(req, res) => {
               console.log("["+data+"]")
               for (i in JSON.parse("["+data+"]")) {
                 console.log("NOTE");
-                console.log(JSON.stringify(i));
+                console.log(JSON.stringify(JSON.parse("["+data+"]")[i]));
               }
             })
           // }
