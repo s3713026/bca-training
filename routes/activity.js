@@ -152,6 +152,9 @@ exports.getUserInfor = async (res, req) => {
       });
     });
   });
+  res.status(200).send({
+    status: 'ok',
+  });
 }
 
 /**
