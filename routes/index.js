@@ -27,6 +27,8 @@ exports.config = (req, res) => {
  */
 exports.ui = async(req, res) => {
   var request = require('request');
+  var uname = '';
+  var id ='';
   request('https://bca-training.herokuapp.com/getIdFollower', function (error, response, body) {
       // if (!error) {
         request('https://bca-training.herokuapp.com/getUserInfor', function (error, response, body) {
@@ -41,34 +43,35 @@ exports.ui = async(req, res) => {
               for (i in JSON.parse("["+data+"]")) {
                 console.log("NOTE");
                 console.log(JSON.stringify(JSON.parse("["+data+"]")[i].username));
-                res.render('index', {
-                  title: 'Zalo Custom Activity',
-                  dropdownOptionsMessSend: [
-                    {
-                      name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
-                      value: 'replyClient',
-                    },
-                    {
-                      name: 'Gửi Tin Nhắn Text',
-                      value: 'sendMess',
-                    },
-                    {
-                      name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
-                      value: 'sendImg'
-                    }
-                  ],
-                  dropdownOptionsClient: [
-                    {
-                      name: JSON.stringify(JSON.parse("["+data+"]")[i].username),
-                      value: JSON.stringify(JSON.parse("["+data+"]")[i].u_id),
-                    }
-                  ],
-                });
+                uname = JSON.stringify(JSON.parse("["+data+"]")[i].username)
+                id = JSON.stringify(JSON.parse("["+data+"]")[i].u_id)
               }
             })
           // }
         })
       // }
   })
-  
+  res.render('index', {
+    title: 'Zalo Custom Activity',
+    dropdownOptionsMessSend: [
+      {
+        name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
+        value: 'replyClient',
+      },
+      {
+        name: 'Gửi Tin Nhắn Text',
+        value: 'sendMess',
+      },
+      {
+        name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
+        value: 'sendImg'
+      }
+    ],
+    dropdownOptionsClient: [
+      {
+        name: uname,
+        value: id,
+      }
+    ],
+  });
 };
