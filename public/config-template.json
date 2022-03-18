@@ -49,7 +49,7 @@
     }
   },
   "getToken": {
-    "url": "https://$DOMAIN/gettoken",
+    "url": "https://$DOMAIN/getUserInfor",
     "verb": "GET",
     "useJwt": true
   },
