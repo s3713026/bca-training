@@ -122,6 +122,7 @@ exports.getUserInfor = async (res, req) => {
           'username': username,
           'user_ava': user_avatar
         }
+        console.log("ĐỌC THÔNG TIN USER", userInfor.stringify());
         if (fs.existsSync("userinf.json")) {
           fs.readFile("userinf.json", 'utf8', (err, dataInf) => {
             if (err) {
