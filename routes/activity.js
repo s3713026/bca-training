@@ -129,15 +129,15 @@ exports.getUserInfor = async (res, req) => {
               console.error(err)
               return
             }
-            // console.log("read file success")
-            // if(dataInf.indexOf(JSON.stringify(element.user_id))){
-            //   console.log("Có Rồi");
-            // } else {
+            console.log("read file success")
+            if(dataInf.indexOf(JSON.stringify(userInfor))){
+              console.log("Có Rồi");
+            } else {
               fs.appendFile('userinf.json',JSON.stringify(userInfor), function (err) {
                 if (err) throw err;
                 console.log('Saved!');
               });
-            // }
+            }
           });
         } else{
           fs.writeFile("userinf.json", JSON.stringify(userInfor), function (err) {
