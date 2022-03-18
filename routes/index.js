@@ -33,12 +33,12 @@ exports.ui = (req, res) => {
       }
   })  
   var fs = require('fs');
-  fs.readFile("userinf.json", 'utf8', (err, data) => {
+  await fs.readFile("userinf.json", 'utf8', (err, data) => {
     if (err) {
       console.error(err)
       return
     }
-    console.log("read file get user id in homepage success")
+    console.log("Đã lấy được thông tin người dùng")
     console.log(data)
     var user_infor = JSON.parse("["+data+"]")
     // for(var i = 0; i <= user_infor.le)
