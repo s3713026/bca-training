@@ -97,7 +97,7 @@ exports.getUserInfor = async (res, req) => {
       console.error(err)
       return
     }
-    console.log("read file success")
+    console.log("read file get user id success")
     console.log(data)
     JSON.parse(data).forEach(element => {
       var options = {
