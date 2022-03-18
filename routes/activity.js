@@ -131,7 +131,7 @@ exports.getUserInfor = async (res, req) => {
             }
             console.log("read file success")
             JSON.parse(dataInf).forEach(ele => {
-              if(ele.user_id != element.user_id){
+              if(ele.u_id != element.user_id){
                 fs.appendFile('userinf.json',JSON.stringify(userInfor), function (err) {
                   if (err) throw err;
                   console.log('Saved!');
