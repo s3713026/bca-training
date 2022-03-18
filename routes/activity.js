@@ -137,7 +137,7 @@ exports.getUserInfor = async (res, req) => {
                   console.log('Saved!');
                 });
               }
-            }
+            });
             // if(dataInf.indexOf(JSON.stringify(userInfor))){
             //   console.log("Có Rồi");
             // } else {
@@ -145,7 +145,7 @@ exports.getUserInfor = async (res, req) => {
             //     if (err) throw err;
             //     console.log('Saved!');
             //   });
-            // }
+            // }  
           });
         } else{
           fs.writeFile("userinf.json", JSON.stringify(userInfor), function (err) {
