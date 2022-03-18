@@ -122,25 +122,28 @@ exports.getUserInfor = async (res, req) => {
           'username': username,
           'user_ava': user_avatar
         }
-        fs.readFile("userinf.json", 'utf8', (err, dataInf) => {
-          if (err) {
-            console.error(err)
-            return
-          }
-          console.log("read file success")
-          if(dataInf.indexOf(JSON.stringify(element)) !==-1 && dataInf != null){
-            fs.appendFile('userinf.json',JSON.stringify(userInfor), function (err) {
-              if (err) throw err;
-              console.log('Saved!');
-            });
-          }
+        if (fs.existsSync("userinf.json")) {
+          fs.readFile("userinf.json", 'utf8', (err, dataInf) => {
+            if (err) {
+              console.error(err)
+              return
+            }
+            console.log("read file success")
+            if(dataInf.indexOf(JSON.stringify(element)) !==-1 ){
+              fs.appendFile('userinf.json',JSON.stringify(userInfor), function (err) {
+                if (err) throw err;
+                console.log('Saved!');
+              });
+            }
+          });
+        } else{
           fs.writeFile("userinf.json", JSON.stringify(userInfor), function (err) {
             if (err) {
               return console.log(err);
             }
             console.log("The file was saved!");
           });
-        });
+        }
       });
     });
   });
