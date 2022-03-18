@@ -29,42 +29,40 @@ exports.ui = (req, res) => {
   var request = require('request');
   request('https://bca-training.herokuapp.com/getUserInfor', function (error, response, body) {
     if (!error && response.statusCode === 200) {
-      console.log(body) // Print the google web page.
+      fs.readFile("userinf.json", 'utf8', (err, data) => {
+        if (err) {
+          console.error(err)
+          return
+        }
+        console.log("Đã lấy được thông tin người dùng")
+        console.log("["+data+"]")
+        var user_infor = JSON.parse(data)
+        for (i in user_infor) {
+          res.render('index', {
+            title: 'Zalo Custom Activity',
+            dropdownOptionsMessSend: [
+              {
+                name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
+                value: 'replyClient',
+              },
+              {
+                name: 'Gửi Tin Nhắn Text',
+                value: 'sendMess',
+              },
+              {
+                name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
+                value: 'sendImg'
+              }
+            ],
+            dropdownOptionsClient: [
+              {
+                name: user_infor[i].username,
+                value: user_infor[i].u_id,
+              }
+            ],
+          });
+        }
+      })
     }
-    var fs = require('fs');
-    fs.readFile("userinf.json", 'utf8', (err, data) => {
-      if (err) {
-        console.error(err)
-        return
-      }
-      console.log("Đã lấy được thông tin người dùng")
-      console.log("["+data+"]")
-      var user_infor = JSON.parse(data)
-      for (i in user_infor) {
-        res.render('index', {
-          title: 'Zalo Custom Activity',
-          dropdownOptionsMessSend: [
-            {
-              name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
-              value: 'replyClient',
-            },
-            {
-              name: 'Gửi Tin Nhắn Text',
-              value: 'sendMess',
-            },
-            {
-              name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
-              value: 'sendImg'
-            }
-          ],
-          dropdownOptionsClient: [
-            {
-              name: user_infor[i].username,
-              value: user_infor[i].u_id,
-            }
-          ],
-        });
-      }
-    })
   })
 };
