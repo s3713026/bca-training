@@ -32,6 +32,17 @@ exports.ui = (req, res) => {
           console.log(body) // Print the google web page.
       }
   })  
+  var fs = require('fs');
+  fs.readFile("userinf.json", 'utf8', (err, data) => {
+    if (err) {
+      console.error(err)
+      return
+    }
+    console.log("read file get user id in homepage success")
+    console.log(data)
+    var user_infor = JSON.parse("["+data+"]")
+    // for(var i = 0; i <= user_infor.le)
+  })
   res.render('index', {
     title: 'Zalo Custom Activity',
     dropdownOptionsMessSend: [
