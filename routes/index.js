@@ -28,9 +28,9 @@ exports.config = (req, res) => {
 exports.ui = async(req, res) => {
   var request = require('request');
   request('https://bca-training.herokuapp.com/getIdFollower', function (error, response, body) {
-      if (!error) {
+      // if (!error) {
         request('https://bca-training.herokuapp.com/getUserInfor', function (error, response, body) {
-          if (!error) {
+          // if (!error) {
             fs.readFile("userinf.json", 'utf8', (err, data) => {
               if (err) {
                 console.error(err)
@@ -64,8 +64,8 @@ exports.ui = async(req, res) => {
                 });
               }
             })
-          }
+          // }
         })
-      }
+      // }
   })
 };
