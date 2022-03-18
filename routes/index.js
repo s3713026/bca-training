@@ -25,23 +25,25 @@ exports.config = (req, res) => {
  * @param req
  * @param res
  */
-exports.ui = (req, res) => { 
+exports.ui = (req, res) => {
   var request = require('request');
   request('https://bca-training.herokuapp.com/getUserInfor', function (error, response, body) {
-      if (!error && response.statusCode === 200) {
-          console.log(body) // Print the google web page.
-      }
-  })  
-  var fs = require('fs');
-  fs.readFile("userinf.json", 'utf8', (err, data) => {
-    if (err) {
-      console.error(err)
-      return
+    if (!error && response.statusCode === 200) {
+      console.log(body) // Print the google web page.
     }
-    console.log("Đã lấy được thông tin người dùng")
-    console.log(data)
-    var user_infor = JSON.parse("["+data+"]")
-    // for(var i = 0; i <= user_infor.le)
+    var fs = require('fs');
+    fs.readFile("userinf.json", 'utf8', (err, data) => {
+      if (err) {
+        console.error(err)
+        return
+      }
+      console.log("Đã lấy được thông tin người dùng")
+      console.log(data)
+      var user_infor = JSON.parse("[" + data + "]")
+      for (var i = 0; i <= user_infor.length; i++) {
+
+      }
+    })
   })
   res.render('index', {
     title: 'Zalo Custom Activity',
