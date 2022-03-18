@@ -63,8 +63,8 @@ exports.ui = async(req, res) => {
                   ],
                   dropdownOptionsClient: [
                     {
-                      name: JSON.parse("["+data+"]")[i].username,
-                      value: JSON.parse("["+data+"]")[i].u_id,
+                      name: JSON.parse("["+data+"]")[0].username,
+                      value: JSON.parse("["+data+"]")[0].u_id,
                     }
                   ],
                 });
