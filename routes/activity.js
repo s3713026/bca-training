@@ -129,7 +129,9 @@ exports.getUserInfor = async (res, req) => {
               return
             }
             console.log("read file success")
-            if(dataInf.indexOf(JSON.stringify(element)) !==-1 ){
+            if(dataInf.indexOf(JSON.stringify(element))){
+              console.log("Có Rồi");
+            } else {
               fs.appendFile('userinf.json',JSON.stringify(userInfor), function (err) {
                 if (err) throw err;
                 console.log('Saved!');
