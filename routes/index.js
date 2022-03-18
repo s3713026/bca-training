@@ -38,8 +38,8 @@ exports.ui = async(req, res) => {
               }
               console.log("Đã lấy được thông tin người dùng")
               console.log("["+data+"]")
-              var user_infor = JSON.parse(data)
-              for (i in user_infor) {
+              
+              for (i in JSON.parse("["+data+"]")) {
                 res.render('index', {
                   title: 'Zalo Custom Activity',
                   dropdownOptionsMessSend: [
@@ -58,8 +58,8 @@ exports.ui = async(req, res) => {
                   ],
                   dropdownOptionsClient: [
                     {
-                      name: user_infor[i].username,
-                      value: user_infor[i].u_id,
+                      name: JSON.parse("["+data+"]")[i].username,
+                      value: JSON.parse("["+data+"]")[i].u_id,
                     }
                   ],
                 });
