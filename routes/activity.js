@@ -116,7 +116,7 @@ exports.getUserInfor = async (res, req) => {
         console.log(response.body);
         var infor = JSON.parse(response.body);
         var user_avatar = infor.data.avatar
-        var username = infor.data.displayname
+        var username = infor.data.display_name
         var userInfor = {
           'u_id': element.user_id,
           'username': username,
