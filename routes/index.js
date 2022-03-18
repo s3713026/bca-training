@@ -38,8 +38,8 @@ exports.ui = (req, res) => {
         return
       }
       console.log("Đã lấy được thông tin người dùng")
-      console.log(data)
-      var user_infor = JSON.parse("["+data+"]")
+      console.log("["+data+"]")
+      var user_infor = JSON.parse(data)
       for (i in user_infor) {
         res.render('index', {
           title: 'Zalo Custom Activity',
