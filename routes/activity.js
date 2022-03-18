@@ -130,14 +130,24 @@ exports.getUserInfor = async (res, req) => {
               return
             }
             console.log("read file success")
-            if(dataInf.indexOf(JSON.stringify(userInfor))){
-              console.log("Có Rồi");
-            } else {
-              fs.appendFile('userinf.json',JSON.stringify(userInfor), function (err) {
-                if (err) throw err;
-                console.log('Saved!');
-              });
+            for (var i = 0; i <= Json.parse(dataInf).length;i++){
+              if(JSON.parse(dataInf)[i].user_id == element.user_id){
+                continue;
+              }else{
+                fs.appendFile('userinf.json',JSON.stringify(userInfor), function (err) {
+                  if (err) throw err;
+                  console.log('Saved!');
+                });
+              }
             }
+            // if(dataInf.indexOf(JSON.stringify(userInfor))){
+            //   console.log("Có Rồi");
+            // } else {
+            //   fs.appendFile('userinf.json',JSON.stringify(userInfor), function (err) {
+            //     if (err) throw err;
+            //     console.log('Saved!');
+            //   });
+            // }
           });
         } else{
           fs.writeFile("userinf.json", JSON.stringify(userInfor), function (err) {
