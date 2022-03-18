@@ -108,7 +108,7 @@ exports.validate = (req, res) => {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            "user_id": element
+            "user_id": element.user_id
           })
         };
         request(options, function (error, response) {
