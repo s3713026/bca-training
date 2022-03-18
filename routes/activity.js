@@ -99,7 +99,7 @@ exports.validate = (req, res) => {
       }
       console.log("read file success")
       console.log(data)
-      data.forEach(element => {
+      for (var i =0; i <= data.length;i++){
         var options = {
           'method': 'GET',
           'url': 'https://openapi.zalo.me/v2.0/oa/getprofile?data=%7B%22user_id%22%3A%22116216443722543962%22%7D',
@@ -108,16 +108,15 @@ exports.validate = (req, res) => {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            "user_id": element.user_id
+            "user_id": data[i].user_id
           })
         };
         request(options, function (error, response) {
           if (error) throw new Error(error);
           console.log(response.body);
-        });
-      });
-    }) 
- 
+        }); 
+      }
+      }); 
  }
 
  /**
