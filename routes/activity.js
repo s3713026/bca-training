@@ -158,13 +158,6 @@ exports.getUserInfor = async (res, req) => {
 exports.getIdFollower = async (req, res) => {
   var request = require('request');
   var fs = require('fs');
-  // fs.readFile(acToken, 'utf8', (err, data) => {
-  //     if (err) {
-  //         console.error(err)
-  //         return
-  //     }
-  //     console.log("read file success")
-  //     console.log(data)
   var options2 = {
     'method': 'GET',
     'url': 'https://openapi.zalo.me/v2.0/oa/getfollowers?data=%7B%22offset%22%3A0%2C%22count%22%3A5%7D',
@@ -190,7 +183,26 @@ exports.getIdFollower = async (req, res) => {
       console.log("The file was saved!");
     });
   });
-  // });
+
+}
+
+/**
+* Lấy Id người quan tâm.
+* @param req
+* @param res
+* @returns {Promise<void>}
+*/
+exports.getTestRead = async (req, res) => {
+  var request = require('request');
+  var fs = require('fs');
+  fs.readFile("userinf.json", 'utf8', (err, data) => {
+      if (err) {
+          console.error(err)
+          return
+      }
+      console.log("read file success");
+      res.send(data)
+  });
 }
 
 

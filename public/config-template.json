@@ -57,6 +57,11 @@
     "url": "https://$DOMAIN/getIdFollower",
     "verb": "GET",
     "useJwt": true
+  },
+  "getTestRead": {
+    "url": "https://$DOMAIN/getTestRead",
+    "verb": "GET",
+    "useJwt": true
   }
 
 }
