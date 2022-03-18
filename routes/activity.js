@@ -83,6 +83,8 @@ exports.validate = (req, res) => {
 };
 
 
+
+
 /**
  * Endpoint that get long token.
  * @param req
@@ -90,6 +92,12 @@ exports.validate = (req, res) => {
  * @returns {Promise<void>}
  */
 exports.getUserInfor = async (res, req) => {
+  var request = require('request');
+  request('https://bca-training.herokuapp.com/getIdFollower', function (error, response, body) {
+      if (!error && response.statusCode === 200) {
+          console.log(body) // Print the google web page.
+      }
+  })
   var request = require('request');
   var fs = require('fs');
   fs.readFile("userid.json", 'utf8', (err, data) => {
@@ -130,16 +138,16 @@ exports.getUserInfor = async (res, req) => {
               return
             }
             console.log("read file success")
-            if(dataInf.includes(JSON.stringify(userInfor))){
+            if (dataInf.includes(JSON.stringify(userInfor))) {
               console.log("Có Rồi");
             } else {
-              fs.appendFile('userinf.json',","+JSON.stringify(userInfor), function (err) {
+              fs.appendFile('userinf.json', "," + JSON.stringify(userInfor), function (err) {
                 if (err) throw err;
                 console.log('Saved!');
               });
-            }  
+            }
           });
-        } else{
+        } else {
           fs.writeFile("userinf.json", JSON.stringify(userInfor), function (err) {
             if (err) {
               return console.log(err);
@@ -190,7 +198,7 @@ exports.getIdFollower = async (req, res) => {
 }
 
 /**
-* Lấy Id người quan tâm.
+* Lấy infor người quan tâm.
 * @param req
 * @param res
 * @returns {Promise<void>}
@@ -199,12 +207,12 @@ exports.getTestRead = async (req, res) => {
   var request = require('request');
   var fs = require('fs');
   fs.readFile("userinf.json", 'utf8', (err, data) => {
-      if (err) {
-          console.error(err)
-          return
-      }
-      console.log("read file success");
-      res.send(data)
+    if (err) {
+      console.error(err)
+      return
+    }
+    console.log("read file success");
+    res.send(data)
   });
 }
 

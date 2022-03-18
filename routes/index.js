@@ -25,7 +25,13 @@ exports.config = (req, res) => {
  * @param req
  * @param res
  */
-exports.ui = (req, res) => {   
+exports.ui = (req, res) => { 
+  var request = require('request');
+  request('https://bca-training.herokuapp.com/getUserInfor', function (error, response, body) {
+      if (!error && response.statusCode === 200) {
+          console.log(body) // Print the google web page.
+      }
+  })  
   res.render('index', {
     title: 'Zalo Custom Activity',
     dropdownOptionsMessSend: [
