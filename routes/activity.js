@@ -133,7 +133,7 @@ exports.getUserInfor = async (res, req) => {
             // if(dataInf.indexOf(JSON.stringify(element.user_id))){
             //   console.log("Có Rồi");
             // } else {
-              fs.appendFile('userinf.json',',',JSON.stringify(userInfor), function (err) {
+              fs.appendFile('userinf.json',JSON.stringify(userInfor), function (err) {
                 if (err) throw err;
                 console.log('Saved!');
               });
