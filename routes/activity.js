@@ -130,7 +130,7 @@ exports.getUserInfor = async (res, req) => {
               return
             }
             console.log("read file success")
-            for (var i = 0; i <= Json.parse(dataInf).length;i++){
+            for (var i = 0; i <= JSON.parse(dataInf).length;i++){
               if(JSON.parse(dataInf)[i].user_id == element.user_id){
                 continue;
               }else{
