@@ -25,7 +25,7 @@ exports.config = (req, res) => {
  * @param req
  * @param res
  */
-exports.ui = (req, res) => {
+exports.ui = async(req, res) => {
   var request = require('request');
   request('https://bca-training.herokuapp.com/getUserInfor', function (error, response, body) {
     if (!error && response.statusCode === 200) {
