@@ -45,7 +45,7 @@ exports.ui = async(req, res) => {
                 console.log(JSON.stringify(JSON.parse("["+data+"]")[i].username));
                 uname = JSON.stringify(JSON.parse("["+data+"]")[i].username)
                 id = JSON.stringify(JSON.parse("["+data+"]")[i].u_id)
-                await res.render('index', {
+                res.render('index', {
                   title: 'Zalo Custom Activity',
                   dropdownOptionsMessSend: [
                     {
