@@ -152,7 +152,6 @@ exports.getUserInfor = async (res, req) => {
       });
     });
   });
-  res.send("OK");
 }
 
 /**
