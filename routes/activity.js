@@ -136,7 +136,7 @@ exports.getUserInfor = async (res, req) => {
                   if (err) throw err;
                   console.log('Saved!');
                 });
-              }
+              } console.log(ele);
             });
             // if(dataInf.indexOf(JSON.stringify(userInfor))){
             //   console.log("Có Rồi");
