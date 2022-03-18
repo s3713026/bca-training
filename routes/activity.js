@@ -93,12 +93,6 @@ exports.validate = (req, res) => {
  */
 exports.getUserInfor = async (res, req) => {
   var request = require('request');
-  request('https://bca-training.herokuapp.com/getIdFollower', function (error, response, body) {
-      if (!error && response.statusCode === 200) {
-          console.log(body) // Print the google web page.
-      }
-  })
-  var request = require('request');
   var fs = require('fs');
   fs.readFile("userid.json", 'utf8', (err, data) => {
     if (err) {
