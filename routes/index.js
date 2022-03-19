@@ -25,38 +25,39 @@ exports.config = (req, res) => {
  * @param req
  * @param res
  */
-exports.ui = async(req, res) => {
+exports.ui = async (req, res) => {
   var request = require('request');
   var dropdownOptionClients = [];
   request('https://bca-training.herokuapp.com/getIdFollower', function (error, response, body) {
-      if (!error) {
-        request('https://bca-training.herokuapp.com/getUserInfor', function (error, response, body) {
-          if (!error) {
-            fs.readFile("userinf.json", 'utf8', (err, data) => {
-              if (err) {
-                console.error(err)
-                return
-              }
-              console.log("Đã lấy được thông tin người dùng")
-              console.log("["+data+"]")
-              for (i in JSON.parse("["+data+"]")) {
-                console.log("NOTE");
-                console.log(JSON.stringify(JSON.parse("["+data+"]")[i]));
-                dropdownOptionClients.join(JSON.stringify(JSON.parse("["+data+"]")[i]))
-              }
-            })
-          }else{
-            console.log("BUG LOI 1")
-          }
-        })
-      }
-      else {
-        console.log("BUG LOI 2 ")
-      }
+    if (!error) {
+      request('https://bca-training.herokuapp.com/getUserInfor', function (error, response, body) {
+        if (!error) {
+          fs.readFile("userinf.json", 'utf8', (err, data) => {
+            if (err) {
+              console.error(err)
+              return
+            }
+            console.log("Đã lấy được thông tin người dùng")
+            console.log("[" + data + "]")
+            for (i in JSON.parse("[" + data + "]")) {
+              console.log("NOTE");
+              console.log(JSON.stringify(JSON.parse("[" + data + "]")[i]));
+              dropdownOptionClients.join(JSON.stringify(JSON.parse("[" + data + "]")[i]))
+            }
+            console.log("LIST DATA")
+            console.log(JSON.stringify(dropdownOptionClients))
+          })
+        } else {
+          console.log("BUG LOI 1")
+        }
+      })
+    }
+    else {
+      console.log("BUG LOI 2 ")
+    }
   })
-  console.log("LIST DATA")
-  console.log(JSON.stringify(dropdownOptionClients))
-  
+
+
   res.render('index', {
     title: 'Zalo Custom Activity',
     dropdownOptionsMessSend: [
