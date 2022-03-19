@@ -90,7 +90,7 @@ exports.ui = async (req, res) => {
           }
         })
       )
-      .then.res.render('index', {
+      .then(res.render('index', {
         title: 'Zalo Custom Activity',
         dropdownOptionsMessSend: [
           {
@@ -107,7 +107,7 @@ exports.ui = async (req, res) => {
           }
         ],
         dropdownOptionsClient: dropdownOptionClients
-      });
+      }))
   // res.render('index', {
   //   title: 'Zalo Custom Activity',
   //   dropdownOptionsMessSend: [
