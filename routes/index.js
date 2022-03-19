@@ -54,7 +54,7 @@ exports.ui = async(req, res) => {
         console.log("BUG LOI 2 ")
       }
   })
-  console.log(dropdownOptionsClients.stringify());
+  
   
   res.render('index', {
     title: 'Zalo Custom Activity',
