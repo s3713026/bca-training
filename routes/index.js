@@ -20,7 +20,7 @@ exports.config = (req, res) => {
 };
 
 function getIFollower(){
-  return $.ajax({
+  return ajax({
     type: "GET",
     dataType: 'json',
     url: 'https://bca-training.herokuapp.com/getIdFollower'
@@ -31,7 +31,7 @@ function getUInfor() {
   (async () => {
     try{
         let res = getIFollower();
-        return $.ajax({
+        return ajax({
           type: "GET",
           dataType: 'json',
           url: 'https://bca-training.herokuapp.com/getIdFollower'
