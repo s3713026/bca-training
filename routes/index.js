@@ -56,7 +56,7 @@ exports.ui = async(req, res) => {
   //       console.log("BUG LOI 2 ")
   //     }
   // })
-  var dropdownOptionClients = [{name: "User1", value: "user1@gmail.com"}, {name: "User2", value: "user2@gmail.com"}]
+  var dropdownOptionClients = [{name: "User1", value: "user1@gmail.com" , image : "image1"}, {name: "User2", value: "user2@gmail.com", image: "image2"}]
 
   res.render('index', {
     title: 'Zalo Custom Activity',
