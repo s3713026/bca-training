@@ -74,10 +74,6 @@ exports.ui = async(req, res) => {
         value: 'sendImg'
       }
     ],
-    dropdownOptionsClient: [
-      {
-        user:users
-       }
-    ],
+    dropdownOptionsClient: users
   });
 };
