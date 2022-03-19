@@ -37,9 +37,6 @@ function getIFollower() {
 }
 
 function getUInfor() {
-  (async () => {
-    try {
-      let res = getIFollower();
       var request = require('request');
       var options = {
         'method': 'GET',
@@ -51,11 +48,6 @@ function getUInfor() {
         if (error) throw new Error(error);
         console.log(response.body);
       });
-    }
-    catch (err) {
-      console.log(err)
-    }
-  })()
 }
 
 const myPromise = new Promise((resolve, reject) => {
@@ -74,6 +66,7 @@ exports.ui = async (req, res) => {
   var dropdownOptionClients = [];
 
       myPromise
+      .then(getIFollower())
       .then(getUInfor())
       .then(
         fs.readFile("userinf.json", 'utf8', (err, data) => {
