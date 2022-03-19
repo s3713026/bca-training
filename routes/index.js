@@ -79,7 +79,8 @@ exports.ui = async (req, res) => {
           for (i in JSON.parse("[" + data + "]")) {
             console.log("NOTE");
             console.log(JSON.stringify(JSON.parse("[" + data + "]")[i]));
-            dropdownOptionClients.push(JSON.stringify(JSON.parse("[" + data + "]")[i]))
+            dropdownOptionClients.push(JSON.parse("[" + data + "]")[i])
+            
           }
           res.render('index', {
             title: 'Zalo Custom Activity',
