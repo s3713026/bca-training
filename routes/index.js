@@ -69,7 +69,7 @@ exports.ui = async (req, res) => {
   var dropdownOptionClients = [];
   (async () => {
     try {
-      let res = getUInfor();
+      getUInfor();
       fs.readFile("userinf.json", 'utf8', (err, data) => {
         if (err) {
           console.error(err)
