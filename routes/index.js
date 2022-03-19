@@ -30,9 +30,9 @@ exports.ui = async(req, res) => {
   var uname = '';
   var id ='';
   request('https://bca-training.herokuapp.com/getIdFollower', function (error, response, body) {
-      // if (!error) {
+      if (!error) {
         request('https://bca-training.herokuapp.com/getUserInfor', function (error, response, body) {
-          // if (!error) {
+          if (!error) {
             fs.readFile("userinf.json", 'utf8', (err, data) => {
               if (err) {
                 console.error(err)
@@ -47,9 +47,14 @@ exports.ui = async(req, res) => {
                 id = JSON.stringify(JSON.parse("["+data+"]")[i].u_id)
               }
             })
-          // }
+          }else{
+            console.log("BUG LOI 1")
+          }
         })
-      // }
+      }
+      else {
+        console.log("BUG LOI 2 ")
+      }
   })
   await res.render('index', {
     title: 'Zalo Custom Activity',
