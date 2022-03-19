@@ -91,7 +91,7 @@ exports.ui = async (req, res) => {
               },
               {
                 name: 'Gửi Tin Nhắn Text',
-                value: 'sendMess',
+                value: 'https://openapi.zalo.me/v2.0/oa/message',
               },
               {
                 name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
@@ -102,24 +102,4 @@ exports.ui = async (req, res) => {
           })
         })
       )
-        
-  // res.render('index', {
-  //   title: 'Zalo Custom Activity',
-  //   dropdownOptionsMessSend: [
-  //     {
-  //       name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
-  //       value: 'replyClient',
-  //     },
-  //     {
-  //       name: 'Gửi Tin Nhắn Text',
-  //       value: 'sendMess',
-  //     },
-  //     {
-  //       name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
-  //       value: 'sendImg'
-  //     }
-  //   ],
-  //   dropdownOptionsClient: dropdownOptionClients
-  // });
-
 };
