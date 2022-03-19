@@ -41,7 +41,7 @@ block content
           label.slds-form-element__label(for="DropdownOptionsClient") Chọn Người Gửi
           .slds-form-element__control
             .slds-select_container
-              select#DropdownOptionsClient.slds-select.js-activity-setting(name='dropdownOptionsClient')
+              select#DropdownOptionsClient.slds-select.js-activity-setting(username='dropdownOptionsClient')
                 each dropdownOptionClient in dropdownOptionsClient
                   option(value=dropdownOptionClient.u_id)= dropdownOptionClient.username
           label.slds-form-element__label.slds-p-top_medium(for='Text')
