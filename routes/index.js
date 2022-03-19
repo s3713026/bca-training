@@ -36,7 +36,7 @@ function getIFollower() {
   });
 }
 
-var promis = function getUInfor() {
+function getUInfor() {
   (async () => {
     try {
       let res = getIFollower();
@@ -56,8 +56,13 @@ var promis = function getUInfor() {
       console.log(err)
     }
   })()
-
 }
+
+const myPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('foo');
+  }, 300);
+});
 
 /**
  * Render UI
@@ -67,24 +72,24 @@ var promis = function getUInfor() {
 exports.ui = async (req, res) => {
   var request = require('request');
   var dropdownOptionClients = [];
-      promis.then(
-      fs.readFile("userinf.json", 'utf8', (err, data) => {
-        if (err) {
-          console.error(err)
-          return
-        }
-        console.log("Đã lấy được thông tin người dùng")
-        console.log("[" + data + "]")
-        for (i in JSON.parse("[" + data + "]")) {
-          console.log("NOTE");
-          console.log(JSON.stringify(JSON.parse("[" + data + "]")[i]));
-          dropdownOptionClients.push(JSON.stringify(JSON.parse("[" + data + "]")[i]))
-        }
-      }))
-    
 
-
-
+      myPromise
+      .then(getUInfor())
+      .then(
+        fs.readFile("userinf.json", 'utf8', (err, data) => {
+          if (err) {
+            console.error(err)
+            return
+          }
+          console.log("Đã lấy được thông tin người dùng")
+          console.log("[" + data + "]")
+          for (i in JSON.parse("[" + data + "]")) {
+            console.log("NOTE");
+            console.log(JSON.stringify(JSON.parse("[" + data + "]")[i]));
+            dropdownOptionClients.push(JSON.stringify(JSON.parse("[" + data + "]")[i]))
+          }
+        })
+      )
   res.render('index', {
     title: 'Zalo Custom Activity',
     dropdownOptionsMessSend: [
