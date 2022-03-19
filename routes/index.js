@@ -26,38 +26,36 @@ exports.config = (req, res) => {
  * @param res
  */
 exports.ui = async(req, res) => {
-  // var request = require('request');
-  // var uname = '';
-  // var id ='';
-  // request('https://bca-training.herokuapp.com/getIdFollower', function (error, response, body) {
-  //     if (!error) {
-  //       request('https://bca-training.herokuapp.com/getUserInfor', function (error, response, body) {
-  //         if (!error) {
-  //           fs.readFile("userinf.json", 'utf8', (err, data) => {
-  //             if (err) {
-  //               console.error(err)
-  //               return
-  //             }
-  //             console.log("Đã lấy được thông tin người dùng")
-  //             console.log("["+data+"]")
-  //             for (i in JSON.parse("["+data+"]")) {
-  //               console.log("NOTE");
-  //               console.log(JSON.stringify(JSON.parse("["+data+"]")[i].username));
-  //               uname = JSON.stringify(JSON.parse("["+data+"]")[i].username)
-  //               id = JSON.stringify(JSON.parse("["+data+"]")[i].u_id)
-  //             }
-  //           })
-  //         }else{
-  //           console.log("BUG LOI 1")
-  //         }
-  //       })
-  //     }
-  //     else {
-  //       console.log("BUG LOI 2 ")
-  //     }
-  // })
-  var dropdownOptionClients = [{name: "User1", value: "user1@gmail.com" , image : "image1"}, {name: "User2", value: "user2@gmail.com", image: "image2"}]
-
+  var request = require('request');
+  var dropdownOptionClients = [];
+  request('https://bca-training.herokuapp.com/getIdFollower', function (error, response, body) {
+      if (!error) {
+        request('https://bca-training.herokuapp.com/getUserInfor', function (error, response, body) {
+          if (!error) {
+            fs.readFile("userinf.json", 'utf8', (err, data) => {
+              if (err) {
+                console.error(err)
+                return
+              }
+              console.log("Đã lấy được thông tin người dùng")
+              console.log("["+data+"]")
+              for (i in JSON.parse("["+data+"]")) {
+                console.log("NOTE");
+                console.log(JSON.stringify(JSON.parse("["+data+"]")[i]));
+                dropdownOptionClients.join(JSON.stringify(JSON.parse("["+data+"]")[i]))
+              }
+            })
+          }else{
+            console.log("BUG LOI 1")
+          }
+        })
+      }
+      else {
+        console.log("BUG LOI 2 ")
+      }
+  })
+  console.log(dropdownOptionsClients.stringify());
+  
   res.render('index', {
     title: 'Zalo Custom Activity',
     dropdownOptionsMessSend: [

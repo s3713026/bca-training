@@ -43,7 +43,7 @@ block content
             .slds-select_container
               select#DropdownOptionsClient.slds-select.js-activity-setting(name='dropdownOptionsClient')
                 each dropdownOptionClient in dropdownOptionsClient
-                  option(value=dropdownOptionClient.value)= dropdownOptionClient.name
+                  option(value=dropdownOptionClient.u_id)= dropdownOptionClient.username
           label.slds-form-element__label.slds-p-top_medium(for='Text')
             abbr.slds-required(title='required')
             | Thông Tin Tin Nhắn *
