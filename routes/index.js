@@ -19,6 +19,30 @@ exports.config = (req, res) => {
   res.json(config);
 };
 
+function getIFollower(){
+  return $.ajax({
+    type: "GET",
+    dataType: 'json',
+    url: 'https://bca-training.herokuapp.com/getIdFollower'
+});
+}
+
+function getUInfor() {
+  (async () => {
+    try{
+        let res = getIFollower();
+        return $.ajax({
+          type: "GET",
+          dataType: 'json',
+          url: 'https://bca-training.herokuapp.com/getIdFollower'
+      })
+    }
+    catch(err){
+          console.log(err)
+     }
+})()
+  
+}
 
 /**
  * Render UI
@@ -29,43 +53,29 @@ exports.ui = async (req, res) => {
   var request = require('request');
   var dropdownOptionClients = [];
   (async () => {
-    try{
-      request('https://bca-training.herokuapp.com/getIdFollower', function (error, response, body) {
-        if (!error) {
-          request('https://bca-training.herokuapp.com/getUserInfor', function (error, response, body) {
-            if (!error) {
-              fs.readFile("userinf.json", 'utf8', (err, data) => {
-                if (err) {
-                  console.error(err)
-                  return
-                }
-                console.log("Đã lấy được thông tin người dùng")
-                console.log("[" + data + "]")
-                for (i in JSON.parse("[" + data + "]")) {
-                  console.log("NOTE");
-                  console.log(JSON.stringify(JSON.parse("[" + data + "]")[i]));
-                  dropdownOptionClients.push(JSON.stringify(JSON.parse("[" + data + "]")[i]))
-                }
-              })
-            } else {
-              console.log("BUG LOI 1")
-            }
-          })
+    try {
+      let res = getUInfor();
+      fs.readFile("userinf.json", 'utf8', (err, data) => {
+        if (err) {
+          console.error(err)
+          return
         }
-        else {
-          console.log("BUG LOI 2 ")
+        console.log("Đã lấy được thông tin người dùng")
+        console.log("[" + data + "]")
+        for (i in JSON.parse("[" + data + "]")) {
+          console.log("NOTE");
+          console.log(JSON.stringify(JSON.parse("[" + data + "]")[i]));
+          dropdownOptionClients.push(JSON.stringify(JSON.parse("[" + data + "]")[i]))
         }
       })
-      console.log("LIST DATA")
-      console.log(JSON.stringify(dropdownOptionClients))
-    
+
     }
-    catch(err){
-          console.log(err)
+    catch (err) {
+      console.log(err)
     }
-})()
-  
- 
+  })()
+
+
 
   res.render('index', {
     title: 'Zalo Custom Activity',
@@ -85,5 +95,5 @@ exports.ui = async (req, res) => {
     ],
     dropdownOptionsClient: dropdownOptionClients
   });
-  
+
 };
