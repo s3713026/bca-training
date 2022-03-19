@@ -44,8 +44,24 @@ exports.ui = async (req, res) => {
               console.log(JSON.stringify(JSON.parse("[" + data + "]")[i]));
               dropdownOptionClients.push(JSON.stringify(JSON.parse("[" + data + "]")[i]))
             }
-            console.log("LIST DATA")
-            console.log(JSON.stringify(dropdownOptionClients))
+            res.render('index', {
+              title: 'Zalo Custom Activity',
+              dropdownOptionsMessSend: [
+                {
+                  name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
+                  value: 'replyClient',
+                },
+                {
+                  name: 'Gửi Tin Nhắn Text',
+                  value: 'sendMess',
+                },
+                {
+                  name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
+                  value: 'sendImg'
+                }
+              ],
+              dropdownOptionsClient: dropdownOptionClients
+            });
           })
         } else {
           console.log("BUG LOI 1")
@@ -56,24 +72,4 @@ exports.ui = async (req, res) => {
       console.log("BUG LOI 2 ")
     }
   })
-
-
-  res.render('index', {
-    title: 'Zalo Custom Activity',
-    dropdownOptionsMessSend: [
-      {
-        name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
-        value: 'replyClient',
-      },
-      {
-        name: 'Gửi Tin Nhắn Text',
-        value: 'sendMess',
-      },
-      {
-        name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
-        value: 'sendImg'
-      }
-    ],
-    dropdownOptionsClient: dropdownOptionClients
-  });
 };
