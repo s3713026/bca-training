@@ -41,9 +41,9 @@ block content
           label.slds-form-element__label(for="DropdownOptionsClient") Chọn Người Gửi
           .slds-form-element__control
             .slds-select_container
-              each name in users
               select#DropdownOptionsClient.slds-select.js-activity-setting(name='dropdownOptionsClient')
-                each dropdownOptionClient in dropdownOptionsClient
+                //- each dropdownOptionClient in dropdownOptionsClient
+                each name in users
                   option(value=dropdownOptionClient.value)= dropdownOptionClient.name
           label.slds-form-element__label.slds-p-top_medium(for='Text')
             abbr.slds-required(title='required')
