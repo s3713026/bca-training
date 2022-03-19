@@ -19,29 +19,44 @@ exports.config = (req, res) => {
   res.json(config);
 };
 
-function getIFollower(){
-  return ajax({
-    type: "GET",
-    dataType: 'json',
-    url: 'https://bca-training.herokuapp.com/getIdFollower'
-});
+function getIFollower() {
+  var request = require('request');
+  var options = {
+    'method': 'GET',
+    'url': 'https://bca-training.herokuapp.com/getIdFollower',
+    'headers': {
+    },
+    formData: {
+
+    }
+  };
+  request(options, function (error, response) {
+    if (error) throw new Error(error);
+    console.log(response.body);
+  });
 }
 
 function getUInfor() {
   (async () => {
-    try{
-        let res = getIFollower();
-        return ajax({
-          type: "GET",
-          dataType: 'json',
-          url: 'https://bca-training.herokuapp.com/getIdFollower'
-      })
+    try {
+      let res = getIFollower();
+      var request = require('request');
+      var options = {
+        'method': 'GET',
+        'url': 'https://bca-training.herokuapp.com/getUserInfor',
+        'headers': {
+        }
+      };
+      request(options, function (error, response) {
+        if (error) throw new Error(error);
+        console.log(response.body);
+      });
     }
-    catch(err){
-          console.log(err)
-     }
-})()
-  
+    catch (err) {
+      console.log(err)
+    }
+  })()
+
 }
 
 /**
