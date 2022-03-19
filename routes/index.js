@@ -36,7 +36,7 @@ function getIFollower() {
   });
 }
 
-function getUInfor() {
+var promis = function getUInfor() {
   (async () => {
     try {
       let res = getIFollower();
@@ -67,9 +67,7 @@ function getUInfor() {
 exports.ui = async (req, res) => {
   var request = require('request');
   var dropdownOptionClients = [];
-  (async () => {
-    try {
-      getUInfor();
+      promis.then(
       fs.readFile("userinf.json", 'utf8', (err, data) => {
         if (err) {
           console.error(err)
@@ -82,13 +80,8 @@ exports.ui = async (req, res) => {
           console.log(JSON.stringify(JSON.parse("[" + data + "]")[i]));
           dropdownOptionClients.push(JSON.stringify(JSON.parse("[" + data + "]")[i]))
         }
-      })
-
-    }
-    catch (err) {
-      console.log(err)
-    }
-  })()
+      }))
+    
 
 
 
