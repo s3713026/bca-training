@@ -56,7 +56,9 @@ exports.ui = async(req, res) => {
         console.log("BUG LOI 2 ")
       }
   })
-  await res.render('index', {
+  var users = [{name: "User1", email: "user1@gmail.com"}, {name: "User2", email: "user2@gmail.com"}]
+
+  res.render('index', {
     title: 'Zalo Custom Activity',
     dropdownOptionsMessSend: [
       {
@@ -74,8 +76,7 @@ exports.ui = async(req, res) => {
     ],
     dropdownOptionsClient: [
       {
-        name: uname,
-        value: id,
+        name: users,
       }
     ],
   });
