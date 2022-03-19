@@ -56,7 +56,7 @@ exports.ui = async(req, res) => {
         console.log("BUG LOI 2 ")
       }
   })
-  var users = [{name: "User1", email: "user1@gmail.com"}, {name: "User2", email: "user2@gmail.com"}]
+  var users = [{name: "User1", value: "user1@gmail.com"}, {name: "User2", value: "user2@gmail.com"}]
 
   res.render('index', {
     title: 'Zalo Custom Activity',
