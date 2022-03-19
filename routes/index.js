@@ -81,26 +81,27 @@ exports.ui = async (req, res) => {
             console.log(JSON.stringify(JSON.parse("[" + data + "]")[i]));
             dropdownOptionClients.push(JSON.stringify(JSON.parse("[" + data + "]")[i]))
           }
+          res.render('index', {
+            title: 'Zalo Custom Activity',
+            dropdownOptionsMessSend: [
+              {
+                name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
+                value: 'replyClient',
+              },
+              {
+                name: 'Gửi Tin Nhắn Text',
+                value: 'sendMess',
+              },
+              {
+                name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
+                value: 'sendImg'
+              }
+            ],
+            dropdownOptionsClient: dropdownOptionClients
+          })
         })
       )
-      .then(res.render('index', {
-        title: 'Zalo Custom Activity',
-        dropdownOptionsMessSend: [
-          {
-            name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
-            value: 'replyClient',
-          },
-          {
-            name: 'Gửi Tin Nhắn Text',
-            value: 'sendMess',
-          },
-          {
-            name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
-            value: 'sendImg'
-          }
-        ],
-        dropdownOptionsClient: dropdownOptionClients
-      }))
+        
   // res.render('index', {
   //   title: 'Zalo Custom Activity',
   //   dropdownOptionsMessSend: [
