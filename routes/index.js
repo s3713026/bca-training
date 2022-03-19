@@ -54,6 +54,7 @@ exports.ui = async(req, res) => {
         console.log("BUG LOI 2 ")
       }
   })
+  console.log("LIST DATA")
   console.log(JSON.stringify(dropdownOptionClients))
   
   res.render('index', {
