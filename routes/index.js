@@ -56,28 +56,7 @@ const myPromise = new Promise((resolve, reject) => {
   }, 10000);
 });
 
-function sendMess (url,uid,text) {
-  var options = {
-    'method': 'POST',
-    'url': url,
-    'headers': {
-        'access_token': acToken.token,
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-        "recipient": {
-            "user_id": uid
-        },
-        "message": {
-            "text": text
-        }
-    })
-};
-request(options, function (error, response) {
-    if (error) throw new Error(error);
-    console.log(response.body);
-});
-}
+
 
 /**
  * Render UI
