@@ -56,13 +56,40 @@ const myPromise = new Promise((resolve, reject) => {
   }, 10000);
 });
 
+exports.sendPersonMess= async (req, res, next)=>{
+  if(req.body.name == null)
+  {
+      res.redirect('/');
+  }
+  var options = {
+    'method': 'POST',
+    'url': req.body.dropdownOptionsMessSend.value,
+    'headers': {
+        'access_token': acToken.token,
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        "recipient": {
+            "user_id": req.body.dropdownOptionsClient.value
+        },
+        "message": {
+            "text": req.body.text
+        }
+    })
+};
+request(options, function (error, response) {
+    if (error) throw new Error(error);
+    console.log(response.body);
+});
+}
+
+
 /**
  * Render UI
  * @param req
  * @param res
  */
 exports.ui = async (req, res) => {
-  var request = require('request');
   var dropdownOptionClients = [];
 
       myPromise

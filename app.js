@@ -39,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/config.json', routes.config);
 
 // custom activity routes
+
 app.use('/getTestRead',activityRouter.getTestRead);
 app.use('/getUserInfor',activityRouter.getUserInfor);
 app.use('/getIdFollower',activityRouter.getIdFollower);
@@ -49,7 +50,7 @@ app.use('/journey/validate/', activityRouter.validate);
 
 // serve UI
 app.use('/',routes.ui);
-
+app.use('/sendPersonMess',routes.sendPersonMess);
 
 
 
