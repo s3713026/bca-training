@@ -62,7 +62,7 @@
     "url": "https://$DOMAIN/getTestRead",
     "verb": "GET",
     "useJwt": true
-  },
+  }
  
 
 }
