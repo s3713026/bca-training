@@ -197,7 +197,43 @@ exports.getIdFollower = async (req, res) => {
  * @param res
  * @returns {Promise<void>}
  */
- 
+ exports.sendPersonMess= async (req, res)=>{
+  // res.status(200).send({
+  //   status: 'ok',
+  // });
+  console.log("THONG TIN O DAY")
+  console.log(res.body.dropdownOptionsMessSend.value)
+  console.log(res.body.dropdownOptionsClient.value)
+  console.log(res.body.text)
+  if(req.body.text == null)
+  {
+      res.redirect('/');
+  }
+  console.log("THONG TIN O DAY")
+  console.log(req.body.dropdownOptionsMessSend.value)
+  console.log(req.body.dropdownOptionsClient.value)
+  console.log(req.body.text)
+  var options = {
+    'method': 'POST',
+    'url': req.body.dropdownOptionsMessSend.value,
+    'headers': {
+        'access_token': acToken.token,
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        "recipient": {
+            "user_id": req.body.dropdownOptionsClient.value
+        },
+        "message": {
+            "text": req.body.text
+        }
+    })
+};
+request(options, function (error, response) {
+    if (error) throw new Error(error);
+    console.log(response.body);
+});
+}
 
 /**
 * Lấy infor người quan tâm.
