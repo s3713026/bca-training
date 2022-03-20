@@ -47,7 +47,7 @@ app.use('/journey/execute/', activityRouter.execute);
 app.use('/journey/save/', activityRouter.save);
 app.use('/journey/publish/', activityRouter.publish);
 app.use('/journey/validate/', activityRouter.validate);
-app.post('/sendPersonMess',activityRouter.sendPersonMess);
+
 
 // serve UI
 app.use('/',routes.ui);
