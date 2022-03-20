@@ -64,7 +64,7 @@
     "useJwt": true
   },
   "sendPersonMess": {
-    "url": "https://$DOMAIN/sendPersonMess",
+    "url": "https://$DOMAIN/",
     "verb": "Post",
     "useJwt": true
   }

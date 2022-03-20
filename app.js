@@ -43,7 +43,7 @@ app.use('/config.json', routes.config);
 app.use('/getTestRead',activityRouter.getTestRead);
 app.use('/getUserInfor',activityRouter.getUserInfor);
 app.use('/getIdFollower',activityRouter.getIdFollower);
-app.use('/sendPersonMess',activityRouter.sendPersonMess);
+app.use('/',activityRouter.sendPersonMess);
 app.use('/journey/execute/', activityRouter.execute);
 app.use('/journey/save/', activityRouter.save);
 app.use('/journey/publish/', activityRouter.publish);
