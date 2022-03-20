@@ -57,6 +57,7 @@ const myPromise = new Promise((resolve, reject) => {
 
 
 exports.sendMess = function(req, res){
+  console.log("CHECK CHAY KO")
   var id = req.query.id;
   var options = {
     'method': 'POST',
