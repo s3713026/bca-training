@@ -48,7 +48,6 @@ app.use('/journey/save/', activityRouter.save);
 app.use('/journey/publish/', activityRouter.publish);
 app.use('/journey/validate/', activityRouter.validate);
 
-
 // serve UI
 app.use('/',routes.ui);
 
