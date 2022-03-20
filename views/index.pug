@@ -2,7 +2,9 @@ extends layout
 
 block content
   script.
-    var f1 = function() { console.log("Value button") }
+    function buttonProcessor(){
+      console.log("HELLO");
+    }
   article.slds-card
     .slds-card__header.slds-grid
       header.slds-media.slds-media_center.slds-has-flexi-truncate
