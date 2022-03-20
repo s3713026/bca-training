@@ -37,17 +37,17 @@ function getIFollower() {
 }
 
 function getUInfor() {
-      var request = require('request');
-      var options = {
-        'method': 'GET',
-        'url': 'https://bca-training.herokuapp.com/getUserInfor',
-        'headers': {
-        }
-      };
-      request(options, function (error, response) {
-        if (error) throw new Error(error);
-        console.log(response.body);
-      });
+  var request = require('request');
+  var options = {
+    'method': 'GET',
+    'url': 'https://bca-training.herokuapp.com/getUserInfor',
+    'headers': {
+    }
+  };
+  request(options, function (error, response) {
+    if (error) throw new Error(error);
+    console.log(response.body);
+  });
 }
 const myPromise = new Promise((resolve, reject) => {
   setTimeout(() => {
@@ -68,41 +68,44 @@ const myPromise = new Promise((resolve, reject) => {
 exports.ui = async (req, res) => {
   var dropdownOptionClients = [];
 
-      myPromise
-      .then(getIFollower())
-      .then(getUInfor())
-      .then(
-        fs.readFile("userinf.json", 'utf8', (err, data) => {
-          if (err) {
-            console.error(err)
-            return
-          }
-          // console.log("Đã lấy được thông tin người dùng")
-          // console.log("[" + data + "]")
-          for (i in JSON.parse("[" + data + "]")) {
-            // console.log("NOTE");
-            // console.log(JSON.stringify(JSON.parse("[" + data + "]")[i]));
-            dropdownOptionClients.push(JSON.parse("[" + data + "]")[i])
-            
-          }
-          res.render('index', {
-            title: 'Zalo Custom Activity',
-            dropdownOptionsMessSend: [
-              {
-                name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
-                value: 'replyClient',
-              },
-              {
-                name: 'Gửi Tin Nhắn Text',
-                value: 'https://openapi.zalo.me/v2.0/oa/message',
-              },
-              {
-                name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
-                value: 'sendImg'
-              }
-            ],
-            dropdownOptionsClient: dropdownOptionClients
-          })
+  myPromise
+    .then(getIFollower())
+    .then(getUInfor())
+    .then(
+      fs.readFile("userinf.json", 'utf8', (err, data) => {
+        if (err) {
+          console.error(err)
+          return
+        }
+        // console.log("Đã lấy được thông tin người dùng")
+        // console.log("[" + data + "]")
+        for (i in JSON.parse("[" + data + "]")) {
+          // console.log("NOTE");
+          // console.log(JSON.stringify(JSON.parse("[" + data + "]")[i]));
+          dropdownOptionClients.push(JSON.parse("[" + data + "]")[i])
+
+        }
+        res.render('index', {
+          title: 'Zalo Custom Activity',
+          dropdownOptionsMessSend: [
+            {
+              name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
+              value: 'replyClient',
+            },
+            {
+              name: 'Gửi Tin Nhắn Text',
+              value: 'https://openapi.zalo.me/v2.0/oa/message',
+            },
+            {
+              name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
+              value: 'sendImg'
+            }
+          ],
+          dropdownOptionsClient: dropdownOptionClients
         })
-      )
+      })
+    )
+  console.log("CHECK CHAY KO")
+  console.log(req.query.dropdownOptionsClient.value)
+
 };
