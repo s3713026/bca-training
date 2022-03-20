@@ -199,7 +199,6 @@ exports.getIdFollower = async (req, res) => {
 */
 exports.sendMess = function(req, res){
   console.log("CHECK CHAY KO")
-  var id = req.query.id;
   var options = {
     'method': 'POST',
     'url': req.query.dropdownOptionsMessSend.value,
