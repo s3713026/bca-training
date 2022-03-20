@@ -59,17 +59,17 @@ const myPromise = new Promise((resolve, reject) => {
 function sendMess (url,uid,text) {
   var options = {
     'method': 'POST',
-    'url': req.body.dropdownOptionsMessSend.value,
+    'url': url,
     'headers': {
         'access_token': acToken.token,
         'Content-Type': 'application/json'
     },
     body: JSON.stringify({
         "recipient": {
-            "user_id": req.body.dropdownOptionsClient.value
+            "user_id": uid
         },
         "message": {
-            "text": req.body.text
+            "text": text
         }
     })
 };
