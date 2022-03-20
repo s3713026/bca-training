@@ -103,8 +103,6 @@ exports.ui = async (req, res) => {
           ],
           dropdownOptionsClient: dropdownOptionClients
         })
-        console.log("CHECK CHAY KO")
-        console.log(req.query.dropdownOptionsClient.value)
       })
       
     )
