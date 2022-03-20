@@ -197,29 +197,30 @@ exports.getIdFollower = async (req, res) => {
 * @param res
 * @returns {Promise<void>}
 */
-exports.sendMess = function(req, res){
+exports.sendMess = function (req, res) {
   console.log("CHECK CHAY KO")
-  var options = {
-    'method': 'POST',
-    'url': req.query.dropdownOptionsMessSend.value,
-    'headers': {
-        'access_token': acToken.token,
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-        "recipient": {
-            "user_id": req.query.dropdownOptionsClient.value
-        },
-        "message": {
-            "text": req.query.textarea-id-01
-        }
-    })
-  }
-  request(options, function (error, response) {
-    if (error) throw new Error(error);
-    console.log("OKOKOKOKOKOK")
-    console.log(response.body);
-});
+  console.log(req.query.dropdownOptionsClient.value)
+  // var options = {
+  //   'method': 'POST',
+  //   'url': req.query.dropdownOptionsMessSend.value,
+  //   'headers': {
+  //     'access_token': acToken.token,
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify({
+  //     "recipient": {
+  //       "user_id": req.query.dropdownOptionsClient.value
+  //     },
+  //     "message": {
+  //       "text": req.query.textarea - id - 01
+  //     }
+  //   })
+  // }
+  // request(options, function (error, response) {
+  //   if (error) throw new Error(error);
+  //   console.log("OKOKOKOKOKOK")
+  //   console.log(response.body);
+  // });
 }
 
 
