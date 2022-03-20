@@ -57,7 +57,7 @@ const myPromise = new Promise((resolve, reject) => {
 });
 
 exports.sendPersonMess= async (req, res, next)=>{
-  if(req.body.name == null)
+  if(req.body.text == null)
   {
       res.redirect('/');
   }
