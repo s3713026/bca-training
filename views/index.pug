@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  form(action="/sendMess", method="POST")
     article.slds-card
       .slds-card__header.slds-grid
         header.slds-media.slds-media_center.slds-has-flexi-truncate
@@ -51,8 +52,8 @@ block content
               textarea#textarea-id-01.slds-textarea(   placeholder='Nhập text…')
     footer.slds-card__footer
     .slds-m-left_xx-large
-      //- button#submitButton.slds-button.slds-button_brand Gửi
-      button(id="sendMessenger" onclick="sendMess(document.getElementById('DropdownOptionsMessSend').value, document.getElementById('DropdownOptionsClient').value, document.getElementById('textarea-id-01').value") add
+      button#submitButton.slds-button.slds-button_brand Gửi
+      //- button(id="sendMessenger" onclick="sendMess(document.getElementById('DropdownOptionsMessSend').value, document.getElementById('DropdownOptionsClient').value, document.getElementById('textarea-id-01').value") add
     
 
     

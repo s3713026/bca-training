@@ -49,36 +49,39 @@ function getUInfor() {
         console.log(response.body);
       });
 }
-
 const myPromise = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve('foo');
   }, 10000);
 });
 
-function sendMess (url,uid,text) {
-  console.log("function run")
+
+exports.sendMess = function(req, res){
+  var id = req.query.id;
   var options = {
     'method': 'POST',
-    'url': url,
+    'url': req.query.dropdownOptionsMessSend.value,
     'headers': {
         'access_token': acToken.token,
         'Content-Type': 'application/json'
     },
     body: JSON.stringify({
         "recipient": {
-            "user_id": uid
+            "user_id": req.query.dropdownOptionsClient.value
         },
         "message": {
-            "text": text
+            "text": req.query.textarea-id-01
         }
     })
-};
-request(options, function (error, response) {
+  }
+  request(options, function (error, response) {
     if (error) throw new Error(error);
+    console.log("OKOKOKOKOKOK")
     console.log(response.body);
 });
 }
+
+
 
 /**
  * Render UI
@@ -121,8 +124,7 @@ exports.ui = async (req, res) => {
                 value: 'sendImg'
               }
             ],
-            dropdownOptionsClient: dropdownOptionClients,
-            sendMess: sendMess
+            dropdownOptionsClient: dropdownOptionClients
           })
         })
       )

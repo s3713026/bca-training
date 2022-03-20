@@ -50,7 +50,7 @@ app.use('/journey/validate/', activityRouter.validate);
 
 // serve UI
 app.use('/',routes.ui);
-
+app.use('/sendMess',routes.sendMess);
 
 
 
