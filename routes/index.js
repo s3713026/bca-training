@@ -56,11 +56,20 @@ const myPromise = new Promise((resolve, reject) => {
   }, 10000);
 });
 
+/**
+ * Endpoint that receives a notification when a user saves the journey.
+ * @param req
+ * @param res
+ * @returns {Promise<void>}
+ */
 exports.sendPersonMess= async (req, res, next)=>{
-  console.log("THONG TIN O DAY")
-  console.log(res.body.dropdownOptionsMessSend.value)
-  console.log(res.body.dropdownOptionsClient.value)
-  console.log(res.body.text)
+  res.status(200).send({
+    status: 'ok',
+  });
+  // console.log("THONG TIN O DAY")
+  // console.log(res.body.dropdownOptionsMessSend.value)
+  // console.log(res.body.dropdownOptionsClient.value)
+  // console.log(res.body.text)
 //   if(req.body.text == null)
 //   {
 //       res.redirect('/');
