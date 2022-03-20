@@ -202,9 +202,9 @@ exports.getIdFollower = async (req, res) => {
   //   status: 'ok',
   // });
   console.log("THONG TIN O DAY")
-  console.log(req.body.dropdownOptionsMessSend.value)
-  console.log(req.body.dropdownOptionsClient.value)
-  console.log(req.body.text)
+  console.log(res.body.dropdownOptionsMessSend.value)
+  console.log(res.body.dropdownOptionsClient.value)
+  console.log(res.body.text)
   if(req.body.text == null)
   {
       res.redirect('/');
