@@ -57,6 +57,7 @@ const myPromise = new Promise((resolve, reject) => {
 });
 
 function sendMess (url,uid,text) {
+  console.log("function run")
   var options = {
     'method': 'POST',
     'url': url,
