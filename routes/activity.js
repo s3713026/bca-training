@@ -115,7 +115,8 @@ exports.getUserInfor = async (res, req) => {
       };
       request(options, function (error, response) {
         if (error) throw new Error(error);
-        console.log(response.body);
+        res.send("OK");
+        // console.log(response.body);
         var infor = JSON.parse(response.body);
         var user_avatar = infor.data.avatar
         var username = infor.data.display_name
@@ -152,7 +153,6 @@ exports.getUserInfor = async (res, req) => {
       });
     });
   });
-  res.send("OK");
 }
 
 /**
