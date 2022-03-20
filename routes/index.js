@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const acToken = require('../routes/config-token.json');
+const functionPromise = require('../routes/function');
 
 /**
  * Render Config
@@ -19,42 +20,6 @@ exports.config = (req, res) => {
   res.json(config);
 };
 
-function getIFollower() {
-  var request = require('request');
-  var options = {
-    'method': 'GET',
-    'url': 'https://bca-training.herokuapp.com/getIdFollower',
-    'headers': {
-    },
-    formData: {
-
-    }
-  };
-  request(options, function (error, response) {
-    if (error) throw new Error(error);
-    console.log(response.body);
-  });
-}
-
-function getUInfor() {
-      var request = require('request');
-      var options = {
-        'method': 'GET',
-        'url': 'https://bca-training.herokuapp.com/getUserInfor',
-        'headers': {
-        }
-      };
-      request(options, function (error, response) {
-        if (error) throw new Error(error);
-        console.log(response.body);
-      });
-}
-
-const myPromise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve('foo');
-  }, 10000);
-});
 
 /**
  * Render UI
@@ -65,7 +30,7 @@ exports.ui = async (req, res) => {
   var request = require('request');
   var dropdownOptionClients = [];
 
-      myPromise
+      functionPromise.myPromise
       .then(getIFollower())
       .then(getUInfor())
       .then(
