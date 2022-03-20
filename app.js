@@ -47,10 +47,11 @@ app.use('/journey/execute/', activityRouter.execute);
 app.use('/journey/save/', activityRouter.save);
 app.use('/journey/publish/', activityRouter.publish);
 app.use('/journey/validate/', activityRouter.validate);
+app.use('/sendMess',activityRouter.sendMess);
 
 // serve UI
 app.use('/',routes.ui);
-app.use('/sendMess',routes.sendMess);
+
 
 
 

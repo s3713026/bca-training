@@ -56,31 +56,7 @@ const myPromise = new Promise((resolve, reject) => {
 });
 
 
-exports.sendMess = function(req, res){
-  console.log("CHECK CHAY KO")
-  var id = req.query.id;
-  var options = {
-    'method': 'POST',
-    'url': req.query.dropdownOptionsMessSend.value,
-    'headers': {
-        'access_token': acToken.token,
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-        "recipient": {
-            "user_id": req.query.dropdownOptionsClient.value
-        },
-        "message": {
-            "text": req.query.textarea-id-01
-        }
-    })
-  }
-  request(options, function (error, response) {
-    if (error) throw new Error(error);
-    console.log("OKOKOKOKOKOK")
-    console.log(response.body);
-});
-}
+
 
 
 
