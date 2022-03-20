@@ -115,7 +115,6 @@ exports.getUserInfor = async (res, req) => {
       };
       request(options, function (error, response) {
         if (error) throw new Error(error);
-        res.send("OK");
         // console.log(response.body);
         var infor = JSON.parse(response.body);
         var user_avatar = infor.data.avatar
