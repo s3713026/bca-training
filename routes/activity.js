@@ -99,8 +99,8 @@ exports.getUserInfor = async (res, req) => {
       console.error(err)
       return
     }
-    console.log("read file get user id success")
-    console.log(data)
+    // console.log("read file get user id success")
+    // console.log(data)
     JSON.parse(data).forEach(element => {
       var options = {
         'method': 'GET',
@@ -124,7 +124,7 @@ exports.getUserInfor = async (res, req) => {
           'username': username,
           'user_ava': user_avatar
         }
-        console.log(userInfor);
+        // console.log(userInfor);
         if (fs.existsSync("userinf.json")) {
           fs.readFile("userinf.json", 'utf8', (err, dataInf) => {
             if (err) {
@@ -133,7 +133,7 @@ exports.getUserInfor = async (res, req) => {
             }
             console.log("read file success")
             if (dataInf.includes(JSON.stringify(userInfor))) {
-              console.log("Có Rồi");
+              // console.log("Có Rồi");
             } else {
               fs.appendFile('userinf.json', "," + JSON.stringify(userInfor), function (err) {
                 if (err) throw err;
@@ -146,7 +146,7 @@ exports.getUserInfor = async (res, req) => {
             if (err) {
               return console.log(err);
             }
-            console.log("The file was saved!");
+            // console.log("The file was saved!");
           });
         }
       });
@@ -185,7 +185,7 @@ exports.getIdFollower = async (req, res) => {
       if (err) {
         return console.log(err);
       }
-      console.log("The file was saved!");
+      // console.log("The file was saved!");
     });
   });
 
@@ -198,14 +198,13 @@ exports.getIdFollower = async (req, res) => {
 * @returns {Promise<void>}
 */
 exports.getTestRead = async (req, res) => {
-  var request = require('request');
   var fs = require('fs');
   fs.readFile("userinf.json", 'utf8', (err, data) => {
     if (err) {
       console.error(err)
       return
     }
-    console.log("read file success");
+    // console.log("read file success");
     res.send(data)
   });
 }

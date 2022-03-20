@@ -61,6 +61,10 @@ exports.sendPersonMess= async (req, res, next)=>{
   {
       res.redirect('/');
   }
+  console.log("THONG TIN O DAY")
+  console.log(req.body.dropdownOptionsMessSend.value)
+  console.log(req.body.dropdownOptionsClient.value)
+  console.log(req.body.text)
   var options = {
     'method': 'POST',
     'url': req.body.dropdownOptionsMessSend.value,
@@ -101,11 +105,11 @@ exports.ui = async (req, res) => {
             console.error(err)
             return
           }
-          console.log("Đã lấy được thông tin người dùng")
-          console.log("[" + data + "]")
+          // console.log("Đã lấy được thông tin người dùng")
+          // console.log("[" + data + "]")
           for (i in JSON.parse("[" + data + "]")) {
-            console.log("NOTE");
-            console.log(JSON.stringify(JSON.parse("[" + data + "]")[i]));
+            // console.log("NOTE");
+            // console.log(JSON.stringify(JSON.parse("[" + data + "]")[i]));
             dropdownOptionClients.push(JSON.parse("[" + data + "]")[i])
             
           }
