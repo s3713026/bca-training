@@ -40,14 +40,14 @@ app.use('/config.json', routes.config);
 
 // custom activity routes
 
-app.use('/getTestRead',activityRouter.getTestRead);
-app.use('/getUserInfor',activityRouter.getUserInfor);
-app.use('/getIdFollower',activityRouter.getIdFollower);
+// app.use('/getTestRead',activityRouter.getTestRead);
+// app.use('/getUserInfor',activityRouter.getUserInfor);
+// app.use('/getIdFollower',activityRouter.getIdFollower);
 app.use('/journey/execute/', activityRouter.execute);
 app.use('/journey/save/', activityRouter.save);
 app.use('/journey/publish/', activityRouter.publish);
 app.use('/journey/validate/', activityRouter.validate);
-app.use('/sendMess',activityRouter.sendMess);
+// app.use('/sendMess',activityRouter.sendMess);
 
 // serve UI
 app.use('/',routes.ui);

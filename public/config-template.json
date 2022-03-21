@@ -47,26 +47,7 @@
       "hideHeader": true,
       "size": "scm-sm"
     }
-  },
-  "getToken": {
-    "url": "https://$DOMAIN/getUserInfor",
-    "verb": "GET",
-    "useJwt": true
-  },
-  "getIdFollower": {
-    "url": "https://$DOMAIN/getIdFollower",
-    "verb": "GET",
-    "useJwt": true
-  },
-  "getTestRead": {
-    "url": "https://$DOMAIN/getTestRead",
-    "verb": "GET",
-    "useJwt": true
-  },
-  "sendMess": {
-    "url": "https://$DOMAIN/sendMess",
-    "verb": "POST",
-    "useJwt": true
   }
-
 }
+
+
