@@ -1,60 +1,32 @@
 extends layout
 
 block content
-  form(action="/sendMess", method="POST")
-    article.slds-card
-      .slds-card__header.slds-grid
-        header.slds-media.slds-media_center.slds-has-flexi-truncate
-          .slds-media__figure
-            span.slds-icon_container.slds-icon-standard-contact(title="contact")
-              svg.slds-icon.slds-icon_small(aria-hidden="true")
-                use(xlink:href="/icons/standard-sprite/svg/symbols.svg#contact")
-              span.slds-assistive-text contact
-          .slds-media__body
-            h2.slds-card__header-title
-              a.slds-card__header-link.slds-truncate(href="javascript:void(0);" title="Card Header")
-                span= title
-      .slds-card__body.slds-card__body_inner
-        form.js-settings-form
-          .slds-form-element
-            label.slds-form-element__label(for="DropdownOptionsMessSend") Chọn Phương Pháp Gửi Tin
-            .slds-form-element__control
-              .slds-select_container
-                select#DropdownOptionsMessSend.slds-select.js-activity-setting(name='dropdownOptionsMessSend')
-                  each dropdownOptionMessSend in dropdownOptionsMessSend
-                    option(value=dropdownOptionMessSend.value)= dropdownOptionMessSend.name
-      .slds-card__body.slds-card__body_inner
-        form.js-settings-form
+  article.slds-card
+    .slds-card__header.slds-grid
+      header.slds-media.slds-media_center.slds-has-flexi-truncate
+        .slds-media__figure
+          span.slds-icon_container.slds-icon-standard-contact(title="contact")
+            svg.slds-icon.slds-icon_small(aria-hidden="true")
+              use(xlink:href="/icons/standard-sprite/svg/symbols.svg#contact")
+            span.slds-assistive-text contact
+        .slds-media__body
+          h2.slds-card__header-title
+            a.slds-card__header-link.slds-truncate(href="javascript:void(0);" title="Card Header")
+              span= title
+    .slds-card__body.slds-card__body_inner
+      form.js-settings-form
+        .slds-form-element
+          label.slds-form-element__label(for="DropdownOptions") Type
           .slds-form-element__control
-            span.slds-radio
-              input#radio-47(type='radio' value='radio-47' name='default' checked='')
-              label.slds-radio__label(for='radio-47')
-                span.slds-radio_faux
-                span.slds-form-element__label Gửi Cá Nhân
-            span.slds-radio
-              input#radio-48(type='radio' value='radio-48' name='default')
-              label.slds-radio__label(for='radio-48')
-                span.slds-radio_faux
-                span.slds-form-element__label Gửi Tất Cả
-      .slds-card__body.slds-card__body_inner
-        form.js-settings-form
-          .slds-form-element
-            label.slds-form-element__label(for="DropdownOptionsClient") Chọn Người Gửi
-            .slds-form-element__control
-              .slds-select_container
-                select#DropdownOptionsClient.slds-select.js-activity-setting(name='dropdownOptionsClient')
-                  each dropdownOptionClient in dropdownOptionsClient
-                    option(value=dropdownOptionClient.u_id)= dropdownOptionClient.username
-            label.slds-form-element__label.slds-p-top_medium(for='Text')
-              abbr.slds-required(title='required')
-              | Thông Tin Tin Nhắn *
-            .slds-form-element__control
-              textarea#textarea-id-01.slds-textarea(   placeholder='Nhập text…')
-    footer.slds-card__footer
-    .slds-m-left_xx-large
-      //- button#submitButton.slds-button.slds-button_brand Gửi
-      button(href= "")
-      //- button(id="sendMessenger" onclick="sendMess(document.getElementById('DropdownOptionsMessSend').value, document.getElementById('DropdownOptionsClient').value, document.getElementById('textarea-id-01').value") add
-    
+            .slds-select_container
+              select#DropdownOptions.slds-select.js-activity-setting(name='dropdownOptions')
+                each dropdownOption in dropdownOptions
+                  option(value=dropdownOption.value)= dropdownOption.name
+              
+          label.slds-form-element__label.slds-p-top_medium(for='Text')
+            abbr.slds-required(title='required')
+            | Text *
+          .slds-form-element__control
+            input#Text.slds-input.js-activity-setting(required='', placeholder='', name='text')
 
-    
+    footer.slds-card__footer

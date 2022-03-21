@@ -115,25 +115,18 @@ exports.config = (req, res) => {
  * @param req
  * @param res
  */
-exports.ui = async (req, res) => {
-  var dropdownOptionClients = [];
+ exports.ui = (req, res) => {
   res.render('index', {
-    title: 'Zalo Custom Activity',
-    dropdownOptionsMessSend: [
+    title: 'Custom Activity',
+    dropdownOptions: [
       {
-        name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
-        value: 'replyClient',
+        name: 'Journey Entry',
+        value: 'journeyEntry',
       },
       {
-        name: 'Gửi Tin Nhắn Text',
-        value: 'https://openapi.zalo.me/v2.0/oa/message',
+        name: 'Journey Exit',
+        value: 'journeyExit',
       },
-      {
-        name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
-        value: 'sendImg'
-      }
     ],
-    dropdownOptionsClient: dropdownOptionClients
-  })
-
-}
+  });
+};
