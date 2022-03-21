@@ -17,10 +17,18 @@ let payload = {};
 let $form;
 $(window).ready(onRender);
 
+//Broadcast phản hồi ready event đầu tiên được gọi bởi tùy chỉnh ứng dụng. Điều này thường được thực hiện trên 
 connection.on('initActivity', initialize);
+//Broadcast phản hồi  đến requestTokens event được gọi bởi ứng dụng tùy chỉnh.
+//Journey Builder trả lại một đối tượng chứa cả mã thông báo kế thừa và mã thông báo Fuel2.
 connection.on('requestedTokens', onGetTokens);
+//Broadcast phản hồi  đến requestEndpoints event được gọi bởi ứng dụng tùy chỉnh. 
+//Journey Builder trả lại một đối tượng có chứa URL máy chủ REST.
 connection.on('requestedEndpoints', onGetEndpoints);
 
+//Phát khi nextButton được nhấn trong confignation modal.
+//Activity sẽ phản hồi bằng cách gọi nextStep 
+//(hoặc ready, nếu xác thực không thành công và hoạt động tùy chỉnh muốn ngăn điều hướng sang bước tiếp theo).
 connection.on('clickedNext', save);
 
 const buttonSettings = {
@@ -32,7 +40,9 @@ const buttonSettings = {
 
 function onRender() {
     connection.trigger('ready');
+    //Trong response Journey Builder phát rộng requestedTokens với tokens được trả lại 
     connection.trigger('requestTokens');
+    //Journey Builder phát rộng requestendPoint với REST endpoint được trả lại  
     connection.trigger('requestEndpoints');
 
     // validation

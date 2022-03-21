@@ -42,7 +42,7 @@ exports.execute = async (req, res) => {
   } catch (error) {
     logger.error(error);
   }
-
+  
   res.status(200).send({
     status: 'ok',
   });
