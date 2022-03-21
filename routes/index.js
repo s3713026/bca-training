@@ -80,7 +80,7 @@ exports.config = (req, res) => {
  */
 exports.ui = (req, res) => {
   res.render('index', {
-    title: 'Custom Activity',
+    title: 'Custom Activity for Zalo',
     dropdownOptions: [
       {
         name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
