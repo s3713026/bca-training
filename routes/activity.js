@@ -17,6 +17,7 @@ const acToken = require('../routes/config-token.json');
  */
 // Thực thi được gọi khi 1 người vào Customer Activity
 exports.execute = async (req, res) => {
+  console.log("Đã gọi");  
   // decode data
   const data = JWT(req.body);
   console.log("SEND HERE XXX:", data)
