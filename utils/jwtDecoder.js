@@ -6,6 +6,6 @@ module.exports = (body) => {
   }
 
   return JWT.verify(body.toString('utf8'), process.env.JWT, {
-    algorithm: 'HS256',
+    // algorithm: 'HS256',
   });
 };
