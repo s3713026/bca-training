@@ -19,43 +19,6 @@ exports.config = (req, res) => {
   res.json(config);
 };
 
-// function getIFollower() {
-//   var request = require('request');
-//   var options = {
-//     'method': 'GET',
-//     'url': 'https://bca-training.herokuapp.com/getIdFollower',
-//     'headers': {
-//     },
-//     formData: {
-
-//     }
-//   };
-//   request(options, function (error, response) {
-//     if (error) throw new Error(error);
-//     console.log(response.body);
-//   });
-// }
-
-// function getUInfor() {
-//   var request = require('request');
-//   var options = {
-//     'method': 'GET',
-//     'url': 'https://bca-training.herokuapp.com/getUserInfor',
-//     'headers': {
-//     }
-//   };
-//   request(options, function (error, response) {
-//     if (error) throw new Error(error);
-//     console.log(response.body);
-//   });
-// }
-// const myPromise = new Promise((resolve, reject) => {
-//   setTimeout(() => {
-//     resolve('foo');
-//   }, 10000);
-// });
-
-
 
 
 
@@ -115,18 +78,22 @@ exports.config = (req, res) => {
  * @param req
  * @param res
  */
- exports.ui = (req, res) => {
+exports.ui = (req, res) => {
   res.render('index', {
     title: 'Custom Activity',
     dropdownOptions: [
       {
-        name: 'Journey Entry',
-        value: 'journeyEntry',
+        name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
+        value: 'replyClient',
       },
       {
-        name: 'Journey Exit',
-        value: 'journeyExit',
+        name: 'Gửi Tin Nhắn Text',
+        value: 'https://openapi.zalo.me/v2.0/oa/message',
       },
+      {
+        name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
+        value: 'sendImg'
+      }
     ],
   });
 };
