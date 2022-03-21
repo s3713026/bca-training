@@ -5,7 +5,7 @@ module.exports = (body) => {
     console.log("IN HỂ")
     return new Error('invalid jwtdata');
   }
-  if(body == []){
+  if(body !== []){
     console.log("have body")
   } else{
     console.log("can't find body")
