@@ -22,7 +22,7 @@ exports.execute = async (req, res) => {
   console.log("SEND HERE XXX:", data)
   logger.info(data);
 
-  try {
+  try { 
     const id = Uuidv1();
 
     await SFClient.saveData(process.env.DATA_EXTENSION_EXTERNAL_KEY, [
