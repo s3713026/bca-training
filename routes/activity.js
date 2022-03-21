@@ -19,7 +19,7 @@ const acToken = require('../routes/config-token.json');
 exports.execute = async (req, res) => {
   // decode data
   const data = JWT(req.body);
-
+  console.log("SEND HERE XXX:", data)
   logger.info(data);
 
   try {
