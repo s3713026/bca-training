@@ -23,8 +23,7 @@ exports.execute = async (req, res) => {
   console.log(res.body); 
   // decode data
   const data = JWT(req.body);
-  console.log("SEND HERE XXX:", 
-  data.inArguments.DropdownOptions)
+  console.log("SEND HERE XXX:", data)
   logger.info(data);
 
   // try { 
@@ -50,17 +49,17 @@ exports.execute = async (req, res) => {
   //     var locals = JSON.parse(body);
       var options = {
         'method': 'POST',
-        'url': data.inArguments.DropdownOptions,
+        'url': data.inArguments[0].DropdownOptions,
         'headers': {
           'access_token': acToken.token,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           "recipient": {
-            "user_id": data.inArguments.contactKey
+            "user_id": data.inArguments[0].contactKey
           },
           "message": {
-            "text": data.inArguments.Text
+            "text": data.inArguments[0].Text
           }
         })
       }
