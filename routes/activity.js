@@ -18,6 +18,7 @@ const { request } = require('express');
  */
 // Thực thi được gọi khi 1 người vào Customer Activity
 exports.execute = async (req, res) => {
+  var request = require('request');
   console.log("Đã gọi");  
   console.log(res.body); 
   // decode data
