@@ -23,7 +23,8 @@ exports.execute = async (req, res) => {
   console.log(res.body); 
   // decode data
   const data = JWT(req.body);
-  console.log("SEND HERE XXX:", data)
+  console.log("SEND HERE XXX:", 
+  data.inArguments.DropdownOptions)
   logger.info(data);
 
   // try { 
