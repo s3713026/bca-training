@@ -40,7 +40,7 @@ const buttonSettings = {
 
 function onRender() {
     connection.trigger('ready');
-    //Trong response Journey Builder phát rộng requestedTokens với tokens được trả lại 
+    //Trong response Journey Builder phát requestedTokens với tokens được trả lại 
     connection.trigger('requestTokens');
     //Journey Builder phát rộng requestendPoint với REST endpoint được trả lại  
     connection.trigger('requestEndpoints');

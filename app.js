@@ -39,22 +39,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/config.json', routes.config);
 
 // custom activity routes
-
-// app.use('/getTestRead',activityRouter.getTestRead);
-// app.use('/getUserInfor',activityRouter.getUserInfor);
-// app.use('/getIdFollower',activityRouter.getIdFollower);
 app.use('/journey/execute/', activityRouter.execute);
 app.use('/journey/save/', activityRouter.save);
 app.use('/journey/publish/', activityRouter.publish);
 app.use('/journey/validate/', activityRouter.validate);
-// app.use('/sendMess',activityRouter.sendMess);
 
 // serve UI
-app.use('/',routes.ui);
-
-
-
-
+app.use('/', routes.ui);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -72,7 +63,9 @@ app.use((err, req, res, next) => {
   res.render('error');
 });
 
-
+// app.listen(process.env.PORT || 3000, function(){
+//   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+// });
 
 
 module.exports = app;

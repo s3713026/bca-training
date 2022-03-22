@@ -7,7 +7,7 @@ const acToken = require('../routes/config-token.json');
  * @param req
  * @param res
  */
-// domain link lấy từ Zalo
+// domain link lấy từ Custom Activity for Zalo
 exports.config = (req, res) => {
   const domain = req.headers.host || req.headers.origin;
   // tạo , nối các đường dẫn 
@@ -19,6 +19,30 @@ exports.config = (req, res) => {
   res.json(config);
 };
 
+/**
+ * Render UI
+ * @param req
+ * @param res
+ */
+ exports.ui = (req, res) => {
+  res.render('index', {
+    title: 'Custom Activity for Zalo',
+    dropdownOptions: [
+      {
+        name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
+        value: 'replyClient',
+      },
+      {
+        name: 'Gửi Tin Nhắn Text',
+        value: 'https://openapi.zalo.me/v2.0/oa/message',
+      },
+      {
+        name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
+        value: 'sendImg'
+      }
+    ],
+  });
+};
 
 
 
@@ -73,27 +97,3 @@ exports.config = (req, res) => {
 
 // };
 
-/**
- * Render UI
- * @param req
- * @param res
- */
-exports.ui = (req, res) => {
-  res.render('index', {
-    title: 'Custom Activity for Zalo',
-    dropdownOptions: [
-      {
-        name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
-        value: 'replyClient',
-      },
-      {
-        name: 'Gửi Tin Nhắn Text',
-        value: 'https://openapi.zalo.me/v2.0/oa/message',
-      },
-      {
-        name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
-        value: 'sendImg'
-      }
-    ],
-  });
-};
