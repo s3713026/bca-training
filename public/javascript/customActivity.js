@@ -33,7 +33,7 @@ connection.on('clickedNext', save);
 
 const buttonSettings = {
     button: 'next',
-    text: 'done',
+    text: 'Send',
     visible: true,
     enabled: false,
 };
