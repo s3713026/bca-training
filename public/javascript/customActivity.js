@@ -32,7 +32,7 @@ connection.on('requestedEndpoints', onGetEndpoints);
 connection.on('clickedNext', save);
 
 const buttonSettings = {
-    button: 'next',
+    button: 'Send',
     text: 'Send',
     visible: true,
     enabled: false,
