@@ -30,7 +30,7 @@ exports.config = (req, res) => {
     dropdownOptions: [
       {
         name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
-        value: 'replyClient',
+        value: 'https://openapi.zalo.me/v2.0/oa/message',
       },
       {
         name: 'Gửi Tin Nhắn Text',
@@ -38,7 +38,7 @@ exports.config = (req, res) => {
       },
       {
         name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
-        value: 'sendImg'
+        value: 'https://openapi.zalo.me/v2.0/oa/message'
       }
     ],
   });
