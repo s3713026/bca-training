@@ -32,8 +32,8 @@ connection.on('requestedEndpoints', onGetEndpoints);
 connection.on('clickedNext', save);
 
 const buttonSettings = {
-    button: 'Send',
-    text: 'Send',
+    button: 'next',
+    text: 'done',
     visible: true,
     enabled: false,
 };
@@ -112,6 +112,7 @@ function onGetEndpoints(endpoints) {
  * Save settings
  */
 function save() {
+    console.log("CHẠY Ở ĐÂY NAY")
     if($form.valid()) {
         payload['metaData'].isConfigured = true;
 
