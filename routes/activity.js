@@ -47,27 +47,30 @@ exports.execute = async (req, res) => {
   // request.get(`/hub/v1/dataevents/key:${process.env.DATA_EXTENSION_EXTERNAL_KEY}/rowset`,function(err, response, body){
   //   if (!err && response.statusCode == 200) {
   //     var locals = JSON.parse(body);
-      var options = {
-        'method': 'POST',
-        'url': data.inArguments[0].DropdownOptions,
-        'headers': {
-          'access_token': acToken.token,
-          'Content-Type': 'application/json'
+  data.inArguments.forEach(element => {
+    var options = {
+      'method': 'POST',
+      'url': element.DropdownOptions,
+      'headers': {
+        'access_token': acToken.token,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        "recipient": {
+          "user_id": element.contactKey
         },
-        body: JSON.stringify({
-          "recipient": {
-            "user_id": data.inArguments[0].contactKey
-          },
-          "message": {
-            "text": data.inArguments[0].Text
-          }
-        })
-      }
-      request(options, function (error, response) {
-        if (error) throw new Error(error);
-        console.log("OKOKOKOKOKOK")
-        console.log(response.body);
-      });
+        "message": {
+          "text": element.Text
+        }
+      })
+    }
+    request(options, function (error, response) {
+      if (error) throw new Error(error);
+      console.log("OKOKOKOKOKOK")
+      console.log(response.body);
+    });
+  });
+      
     // }
   // })
   res.status(200).send({
