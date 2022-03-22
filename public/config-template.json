@@ -11,6 +11,11 @@
   },
   "arguments": {
     "execute": {
+      "inArguments":[
+        {"uid":"{{Contact.UserId}}"},
+        {"phoneNumber":"{{Contact.Atribute.zaloData.PhoneNumber}}"},
+        {"displayName":"{{Contact.Atribute.zaloData.DisplayName}}"}
+      ],
       "url": "https://$DOMAIN/journey/execute",
       "verb": "POST",
       "body": "",
