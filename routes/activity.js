@@ -43,22 +43,22 @@ exports.execute = async (req, res) => {
   // } catch (error) {
   //   logger.error(error);
   // }
-  request.get(`/hub/v1/dataevents/key:${process.env.DATA_EXTENSION_EXTERNAL_KEY}/rowset`,function(err, response, body){
-    if (!err && response.statusCode == 200) {
-      var locals = JSON.parse(body);
+  // request.get(`/hub/v1/dataevents/key:${process.env.DATA_EXTENSION_EXTERNAL_KEY}/rowset`,function(err, response, body){
+  //   if (!err && response.statusCode == 200) {
+  //     var locals = JSON.parse(body);
       var options = {
         'method': 'POST',
-        'url': data.DropdownOptions.value,
+        'url': data.inArguments.DropdownOptions,
         'headers': {
           'access_token': acToken.token,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           "recipient": {
-            "user_id": locals.UserId
+            "user_id": data.inArguments.contactKey
           },
           "message": {
-            "text": data.Text
+            "text": data.inArguments.Text
           }
         })
       }
@@ -67,10 +67,8 @@ exports.execute = async (req, res) => {
         console.log("OKOKOKOKOKOK")
         console.log(response.body);
       });
-    }
-  })
-  
-  
+    // }
+  // })
   res.status(200).send({
     status: 'ok',
   });
