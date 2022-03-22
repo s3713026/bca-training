@@ -3,6 +3,7 @@ const JWT = require('../utils/jwtDecoder');
 const SFClient = require('../utils/sfmc-client');
 const logger = require('../utils/logger');
 const acToken = require('../routes/config-token.json');
+const { request } = require('express');
 
 
 
@@ -24,24 +25,51 @@ exports.execute = async (req, res) => {
   console.log("SEND HERE XXX:", data)
   logger.info(data);
 
-  try { 
-    const id = Uuidv1();
+  // try { 
+  //   // const id = Uuidv1();
 
-    await SFClient.saveData(process.env.DATA_EXTENSION_EXTERNAL_KEY, [
-      {
-        keys: {
-          Id: id,
-          SubscriberKey: data.inArguments[0].contactKey,
+  //   await SFClient.saveData(process.env.DATA_EXTENSION_EXTERNAL_KEY, [
+  //     {
+  //       keys: {
+  //         UserId: data.inArguments[0],
+  //         SubscriberKey: data.inArguments[0].contactKey,
+  //       },
+  //       values: {
+  //         Event: data.inArguments[0].DropdownOptions.value,
+  //         Text: data.inArguments[0].Text,
+  //       },
+  //     },
+  //   ]);
+  // } catch (error) {
+  //   logger.error(error);
+  // }
+  request.get(`/hub/v1/dataevents/key:${process.env.DATA_EXTENSION_EXTERNAL_KEY}/rowset`,function(err, response, body){
+    if (!err && response.statusCode == 200) {
+      var locals = JSON.parse(body);
+      var options = {
+        'method': 'POST',
+        'url': data.DropdownOptions.value,
+        'headers': {
+          'access_token': acToken.token,
+          'Content-Type': 'application/json'
         },
-        values: {
-          Event: data.inArguments[0].DropdownOptions,
-          Text: data.inArguments[0].Text,
-        },
-      },
-    ]);
-  } catch (error) {
-    logger.error(error);
-  }
+        body: JSON.stringify({
+          "recipient": {
+            "user_id": locals.UserId
+          },
+          "message": {
+            "text": data.Text
+          }
+        })
+      }
+      request(options, function (error, response) {
+        if (error) throw new Error(error);
+        console.log("OKOKOKOKOKOK")
+        console.log(response.body);
+      });
+    }
+  })
+  
   
   res.status(200).send({
     status: 'ok',

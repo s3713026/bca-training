@@ -19,31 +19,6 @@ exports.config = (req, res) => {
   res.json(config);
 };
 
-// /**
-//  * Render UI
-//  * @param req
-//  * @param res
-//  */
-//  exports.ui = (req, res) => {
-//   res.render('index', {
-//     title: 'Custom Activity for Zalo',
-//     dropdownOptions: [
-//       {
-//         name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
-//         value: 'replyClient',
-//       },
-//       {
-//         name: 'Gửi Tin Nhắn Text',
-//         value: 'https://openapi.zalo.me/v2.0/oa/message',
-//       },
-//       {
-//         name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
-//         value: 'sendImg'
-//       }
-//     ],
-//   });
-// };
-
 /**
  * Render UI
  * @param req
@@ -51,19 +26,24 @@ exports.config = (req, res) => {
  */
  exports.ui = (req, res) => {
   res.render('index', {
-    title: 'Custom Activity',
+    title: 'Custom Activity for Zalo',
     dropdownOptions: [
       {
-        name: 'Journey Entry',
-        value: 'journeyEntry',
+        name: 'Gửi Tin Nhắn Text Phản Hồi Người Dùng',
+        value: 'replyClient',
       },
       {
-        name: 'Journey Exit',
-        value: 'journeyExit',
+        name: 'Gửi Tin Nhắn Text',
+        value: 'https://openapi.zalo.me/v2.0/oa/message',
       },
+      {
+        name: 'Gửi Tin Nhắn Text kèm Hình Ảnh',
+        value: 'sendImg'
+      }
     ],
   });
 };
+
 
 
 
